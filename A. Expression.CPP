@@ -19,12 +19,32 @@ signed main()
         else if(a[0]==1)cout << (1+a[1])*a[2];
         else cout << a[1]*a[0]*a[2];
     }
-    else
+    else if(a[2]==1&&a[1]!=1&&a[0]!=1)
     {
         sort(a, a+2);
         if(a[1]==1)cout << "3";
         else if(a[0]==1)cout << a[1]+a[0]+a[2];
         else cout << a[0]*(a[1]+a[2]);
+    }
+    else if(a[1]==1&&a[0]!=1)
+    {
+        //8 1 4
+        if(a[0]==1&&a[2]==1)cout << "3";
+        else if(a[0]!=1&&a[2]!=1)
+        {
+            if((a[0]+1)*a[2]>(a[2]+1)*a[0])cout << (a[0]+1)*a[2];
+            else cout << (a[2]+1)*a[0];
+        }
+        else
+        {
+            sort(a, a+3);
+            cout << a[2]*(a[1]+a[0]);
+        }
+    }
+    else if(a[0]==1)
+    {
+        if (a[2]!=1)cout << (a[0]+a[1])*a[2];
+        else cout << (a[0]+a[1])+a[2];
     }
     return 0;
 }
