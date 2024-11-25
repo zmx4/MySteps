@@ -11,6 +11,7 @@ signed main()
 
     int n;cin>>n;
     int arr[n];
+	/*
     for(int i=0;i<n;i++)
     {
       cin>>arr[i];
@@ -25,7 +26,19 @@ signed main()
         minPos=i;
       }
     }
-	cout<<minPos<<" "<<maxPos<<" "<<maxNum<<" "<<minPos<<endl;
+    */
+	for (int i = 0; i < n; ++i) {
+		cin >> arr[i];
+		if (arr[i] > maxNum) {
+			maxNum = arr[i];
+			maxPos = i;
+		}
+		if (arr[i] <= minNum) {
+			minNum = arr[i];
+			minPos = i;
+		}
+	}
+	//cout<<minPos<<" "<<maxPos<<" "<<maxNum<<" "<<minNum<<endl;
 	int i;
 	for(i = 0;maxPos!=0||minPos!=n-1;i++)
 	{
