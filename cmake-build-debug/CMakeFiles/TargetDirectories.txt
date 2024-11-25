@@ -1,0 +1,3 @@
+/mnt/d/Dev/CPP/MySteps/cmake-build-debug/CMakeFiles/MySteps.dir
+/mnt/d/Dev/CPP/MySteps/cmake-build-debug/CMakeFiles/edit_cache.dir
+/mnt/d/Dev/CPP/MySteps/cmake-build-debug/CMakeFiles/rebuild_cache.dir
