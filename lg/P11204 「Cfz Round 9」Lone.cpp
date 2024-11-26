@@ -6,7 +6,9 @@ signed main(){
   cin.tie(0);
   cout.tie(0);
   int t;cin>>t;
-  while(t--){
+  while(t--)
+  {
+    /*
     int n,m;cin>>n>>m;
     if(m%n==0){
       cout<<"YES"<<endl;
@@ -19,5 +21,33 @@ signed main(){
       cout<<"YES"<<endl;
       continue;
     }
+    */
+    int n,m;
+    cin>>n>>m;
+    bool f=1;
+    int s1=m%n,s2=n-m%n;
+    int len1=m/n+1,len2=m/n;
+    if(s1==0){
+      cout<<"Yes\n";
+    }
+    else{
+      if(s1>1){
+        if(len2+len1<=len1){
+          f=0;
+        }
+      }
+      if(s2>1){
+        if(len2+len2<=len1){
+          f=0;
+        }
+      }
+      if(!f){
+        cout<<"No\n";
+      }
+      else{
+        cout<<"Yes\n";
+      }
+    }
   }
+  return 0;
 }
