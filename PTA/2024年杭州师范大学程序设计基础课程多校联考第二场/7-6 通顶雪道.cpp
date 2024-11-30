@@ -1,28 +1,30 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 signed main()
 {
-    int n;cin>>n;
-    int a[1010]={0};
-    for(int i = 1;i <= n;i++)
+    int n;
+    cin >> n;
+    int a[1010] = {0};
+    for (int i = 1; i <= n; i++)
     {
-        cin>>a[i];
-        //cout<<a[i]<<endl;
+        cin >> a[i];
+        // cout<<a[i]<<endl;
     }
-    int t;cin>>t;
-    int l,r;
+    int t;
+    cin >> t;
+    int l, r;
     int j = 1;
-    while(t--)
+    while (t--)
     {
-        cin>>l>>r;
-        for (int i = l; i <= r; ++i) 
+        cin >> l >> r;
+        for (int i = l; i <= r; ++i)
         {
-            if (i <= (l + r) / 2) 
+            if (i <= (l + r) / 2)
             {
                 a[i] += (i - l + 1);
-            } 
-            else 
+            }
+            else
             {
                 a[i] += (r - i + 1);
             }
@@ -30,7 +32,7 @@ signed main()
         /*
         for(int i = l;i < r;i++)
         {
-            
+
             if(i<(l+r)/2)
             {
                 a[i]+=j;
@@ -45,8 +47,8 @@ signed main()
         }
         */
     }
-    for(int i = 1;i <= n;i++)
+    for (int i = 1; i <= n; i++)
     {
-        cout<<a[i];
+        cout << a[i];
     }
 }
