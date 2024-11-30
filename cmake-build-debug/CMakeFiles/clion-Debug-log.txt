@@ -1,4 +1,4 @@
-/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles" -S /mnt/d/Dev/CPP/MySteps -B /mnt/d/Dev/CPP/MySteps/cmake-build-debug
+/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G Ninja -S /mnt/d/Dev/CPP/MySteps -B /mnt/d/Dev/CPP/MySteps/cmake-build-debug
 -- The C compiler identification is GNU 11.4.0
 -- The CXX compiler identification is GNU 11.4.0
 -- Detecting C compiler ABI info
@@ -11,6 +11,6 @@
 -- Check for working CXX compiler: /usr/bin/c++ - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
--- Configuring done (3.3s)
+-- Configuring done (3.4s)
 -- Generating done (0.1s)
 -- Build files have been written to: /mnt/d/Dev/CPP/MySteps/cmake-build-debug

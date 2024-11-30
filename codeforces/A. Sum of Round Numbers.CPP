@@ -1,15 +1,36 @@
-//24-11-29 Tick
-#include <bits/stdc++.h>
-#define endl "\n"
+#include <iostream>
+#include <cmath>
+
 using namespace std;
 
-signed main()
+int main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
+    int T;
+    cin>>T;
 
+    while (T--){
+        string s;
+        cin>>s;
 
+        int t=0;
+        for (int i=0;i<s.size();++i){
+            if (s[i]=='0')
+                continue;
+            else
+                t++;
+        }
+        cout<<t<<endl;
 
-    return 0;
+        for (int i=0;i<s.size();++i){
+            if (s[i]=='0')
+                continue;
+            else{
+                cout<<s[i];
+                for (int j=i+1;j<s.size();++j)
+                    cout<<"0";
+                cout<<" ";
+            }
+        }
+        cout<<endl;
+    }
 }
