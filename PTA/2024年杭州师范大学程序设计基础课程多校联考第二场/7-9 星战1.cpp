@@ -34,6 +34,7 @@ signed main()
             u = 1;
         dx /= u;
         dy /= u;
+        //cout<<dx + 2000<<" "<<dy + 2000<<endl;
         if (a[dx + 2000][dy + 2000] == 0)
         {
             cnt++;

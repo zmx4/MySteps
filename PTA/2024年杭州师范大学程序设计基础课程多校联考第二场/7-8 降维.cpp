@@ -20,6 +20,7 @@ void solve(const int &aa, const int &bb, const int &xx, const int &yy)
         solve(1 + (xx / 2), 1, 1, yy / 2);
         solve(1, 1 + (yy / 2), xx / 2, 1);
     }
+    n=gcd(xx,yy);
 }
 signed main()
 {
