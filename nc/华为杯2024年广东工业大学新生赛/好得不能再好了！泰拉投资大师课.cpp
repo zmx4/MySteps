@@ -10,8 +10,7 @@ long long qkm(long long a, long long b)
     long long t = a;
     while (b > 0)
     {
-        if (b & 1)
-            re = (re * t) % MOD;
+        if (b & 1)re = (re * t) % MOD;
         t = (t * t) % MOD;
         b /= 2;
     }
@@ -55,8 +54,7 @@ long long solve(int n, int p, int q)
 int main()
 {
     ios::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
+    cin.tie(0);cout.tie(0);
 
     preprocess();
 
