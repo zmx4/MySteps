@@ -1,18 +1,21 @@
 #include <bits/stdc++.h>
+#define endl "\n"
 using namespace std;
 
-const int N = 100;
-int path[N];
-bool st[N]={true};
+int team[100];
 
-int n,k;
-
+int n;
+int path[100];
+bool st[100]={true};
 void dfs(int u)
 {
-    if(u==k)
+    if(n==u)
     {
-        for(int i = 0;i < u;i++)cout<<path[i]<<" ";
-        cout<<endl;
+        for(int i = 0;i < n;i++)
+        {
+            cout<<path[i]<<" ";
+        }
+        puts("");
         return;
     }
 
@@ -28,14 +31,9 @@ void dfs(int u)
     }
 }
 
-
-
 signed main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);cout.tie(nullptr);
-
-    cin>>n>>k;
+    cin>>n;
 
     dfs(0);
 
