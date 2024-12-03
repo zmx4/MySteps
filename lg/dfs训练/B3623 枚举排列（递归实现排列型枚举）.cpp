@@ -3,7 +3,7 @@ using namespace std;
 
 const int N = 100;
 int path[N];
-bool st[N]={true};
+bool st[N];
 
 int n,k;
 
