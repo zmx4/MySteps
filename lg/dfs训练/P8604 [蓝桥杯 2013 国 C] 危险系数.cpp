@@ -3,7 +3,7 @@ using namespace std;
 
 
 const int N = 2010;
-int sum;
+int sum = 0;
 int n,m;int u,v;
 int path[N][N];
 bool st[N][N];
@@ -12,7 +12,7 @@ void dfs(int u)
 {
     if(u==v)
     {
-        
+        sum++;
 
         return;
     }
