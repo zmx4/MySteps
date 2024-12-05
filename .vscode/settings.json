@@ -97,5 +97,22 @@
     },
     "editor.detectIndentation": false,
 	"editor.insertSpaces": false,
+	"terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "args": [
+                "-NoExit",
+                "-Command",
+                "chcp 65001"
+            ]
+        },
+        "Command Prompt": {
+            "path": "C:\\Windows\\System32\\cmd.exe",
+            "args": [
+                "/K",
+                "chcp 65001"
+            ]
+        }
+    },
 	"C_Cpp.errorSquiggles": "disabled"
 }
