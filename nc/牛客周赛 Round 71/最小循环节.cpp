@@ -12,6 +12,8 @@ afavfdbbxx
 	string s;
 	cin >> s;
 
+	unordered_set<char> uniquesubstr(s.begin(), s.end());
+	cout << uniquesubstr.size();
 
 	return 0;
 }
