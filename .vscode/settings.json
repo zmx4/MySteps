@@ -131,5 +131,8 @@
             ]
         }
     },
-	"C_Cpp.errorSquiggles": "disabled"
+	"C_Cpp.errorSquiggles": "disabled",
+	"editor.formatOnType": true,
+	"editor.formatOnPaste": true,
+	"editor.wordWrap": "on"
 }
