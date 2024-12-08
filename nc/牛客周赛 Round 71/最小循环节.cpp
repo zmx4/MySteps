@@ -5,10 +5,10 @@ signed main()
 {
 	ios::sync_with_stdio(false);
 	cin.tie(nullptr);cout.tie(nullptr);
-/*
-afavfdbbxx
-
-*/
+	/*
+	a f   avfdb     bx     x
+	avfdbxavfdbxavfdbxavfdbx
+	*/
 	string s;
 	cin >> s;
 

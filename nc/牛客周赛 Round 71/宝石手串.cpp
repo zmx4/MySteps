@@ -80,14 +80,7 @@ int main()
 		}
 		else if (minNum != INT_MAX)
 		{
-			if (n - (minNum + 1) == 2)
-			{
-				cout << minNum << endl;
-			}
-			else
-			{
-				cout << minNum << endl;
-			}
+			cout << minNum << endl;
 		}
 		else
 		{
