@@ -46,21 +46,12 @@ int main()
 				{
 					int distance = pos[i][j] - pos[i][j - 1] - 1;
 					minNum = min(minNum, distance);
-					if (distance == 0)
-					{
-						possible = true;
-						break;
-					}
 				}
-				if (pos[i].size() >= 2)
-				{
-					int distance = (n - pos[i].back() + pos[i][0] - 1);
-					minNum = min(minNum, distance);
-					if (distance == 0)
-					{
-						possible = true;
-					}
-				}
+				/*
+				abcdefa
+				*/
+				int distance = (n - pos[i].back() + pos[i][0] - 1);
+				minNum = min(minNum, distance);
 			}
 		}
 
