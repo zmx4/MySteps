@@ -1,0 +1,1 @@
+{"name":"Local: B","url":"d:\\Dev\\CPP\\MySteps\\codeforces\\B. Xenia and Ringroad.cpp","tests":[{"id":1734007943142,"input":"4 3\n3 2 3\n","output":"6\n"},{"id":1734007948294,"input":"4 3\n2 3 3\n","output":"2\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\CPP\\MySteps\\codeforces\\B. Xenia and Ringroad.cpp","group":"local","local":true}
