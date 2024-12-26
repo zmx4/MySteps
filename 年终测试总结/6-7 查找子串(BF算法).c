@@ -21,32 +21,27 @@ int main()
 }
 char *StrStr(const char *txt, const char *pat)
 {
-	int cnt = 0;
-	int index = -1;
-	for (int i = 0; i < strlen(txt); i++)
+	if (pat[0] == '\0')
+		return NULL;
+
+	int txt_len = strlen(txt);
+	int pat_len = strlen(pat);
+
+	for (int i = 0; i <= txt_len - pat_len; i++)
 	{
-		if (txt[i] = pat[0])
+		if (txt[i] == pat[0])
 		{
-			int sign = 0;
-			for (int j = 1; j < strlen(pat); j++)
+			int j = 0;
+			for (j = 1; j < pat_len; j++)
 			{
 				if (txt[i + j] != pat[j])
 				{
-					sign = 1;
+					break;
 				}
 			}
-			if (!sign)
-			{
-				if (cnt == 0)
-					index = i;
-				cnt++;
-			}
+			if (j == pat_len)
+				return (char *)(txt + i);
 		}
 	}
-	if (cnt == 0)
-		return NULL;
-	else
-	{
-		return (char *)*txt + index;
-	}
+	return NULL;
 }
