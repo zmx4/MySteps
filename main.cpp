@@ -55,3 +55,8 @@ char *StrStr(const char *txt, const char *pat)
 	}
 	return NULL;
 }
+
+bool isPrime(int n)
+{
+	if(n<)
+}
