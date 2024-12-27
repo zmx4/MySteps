@@ -68,3 +68,25 @@ bool isPrime(int n)
 	}
 	return true;
 }
+
+void quicksort(int a[], int l, int r)
+{
+	if(l<r)
+	{
+		int i = l;
+		int j = r;
+		int key = a[l];
+		while(i<j)
+		{
+			while(i<j&&a[j]>=key)
+				j--;
+			a[i] = a[j];
+			while(i<j&&a[i]<=key)
+				i++;
+			a[j] = a[i];
+		}
+		a[i] = key;
+		quicksort(a, l, i - 1);
+		quicksort(a, i + 1, r);
+	}
+}
