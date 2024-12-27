@@ -134,3 +134,4 @@ cmake-build-debug/Testing/Temporary/LastTest.log
 //忽略*.exe文件
 *.exe
 /A. Puzzles
+build/.cmake/api/v1/*
