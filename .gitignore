@@ -129,7 +129,7 @@ cmake-build-debug/CMakeFiles/MySteps.dir/flags.make
 cmake-build-debug/CMakeFiles/MySteps.dir/link.txt
 cmake-build-debug/CMakeFiles/MySteps.dir/progress.make
 cmake-build-debug/Testing/Temporary/LastTest.log
-
+cmake-build-debug/*
 
 //忽略*.exe文件
 *.exe
