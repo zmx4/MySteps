@@ -30,14 +30,15 @@ signed main()
 	ios::sync_with_stdio(false);
 	cin.tie(nullptr);
 	cout.tie(nullptr);
-	//int a[MAX_SIZE];
-	//memset(a, 0, sizeof(a));
+	int b[MAX_SIZE];
+	memset(b, 0, sizeof(b));
 	int n;
 	cin >> n;
 	vector<int> a(n,0);
 	for (int i = 0; i < n;i++)
 	{
 		cin >> a[i];
+		b[i] = a[i];
 	}
 	//lambda
 	sort(a.begin(), a.end(), [](int a, int b){ return a > b; });
@@ -58,4 +59,12 @@ signed main()
 		cout << a[i]<<" ";
 	}
 	cout << endl;
+	mysort:
+		lowwersort ms;
+		ms.insertsort(b, n);
+		
+		for (int i = 0; i < n; i++)
+		{
+			cout << b[i] << " ";
+	}
 }

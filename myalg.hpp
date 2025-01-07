@@ -1,3 +1,4 @@
+#pragma once
 class myalg
 {
 public:
@@ -38,7 +39,7 @@ public:
 		}
 		for (int i = 2; i < n;i++)
 		{
-			if(!st[i])
+			if (!state[i])
 			{
 				count++;
 				for (int j = i + 1; i < n;j+=i)
@@ -91,7 +92,7 @@ class uppersort:public mysort
 				a[i + 1] = key;
 			}
 		}
-}
+};
 class lowwersort:public mysort
 {
 	public:
@@ -109,10 +110,54 @@ class lowwersort:public mysort
 				a[i + 1] = key;
 			}
 		}
-}
+		virtual void quicksort(int a[], int l, int r)
+		{
+			if (l < r)
+			{
+				int i = l;
+				int j = r;
+				int key = a[l];
+				while (i < j)
+				{
+					while (i < j && a[j] <= key)
+						j--;
+					a[i] = a[j];
+					while (i < j && a[i] >= key)
+						i++;
+					a[j] = a[i];
+				}
+				a[i] = key;
+				quicksort(a, l, i - 1);
+				quicksort(a, i + 1, r);
+			}
+		}
+};
 class myjudge{
+	private:
+		int powa(int n,int s)
+		{
+			int total = 1;
+			while(s--)
+			{
+				total *= n;
+			}
+			return total;
+		}
+		int countDigits(int number)
+		{
+			int count = 0;
+			if (number == 0)
+				return 1;
+			while (number != 0)
+			{
+				number /= 10;
+				count++;
+			}
+			return count;
+		}
+
 	public:
-		bool isPrime(int n)
+		bool isPrime(const int &n)
 		{
 			if (n <= 1)
 				return false;
@@ -127,4 +172,21 @@ class myjudge{
 			}
 			return true;
 		}
+		bool isNarcissistic(const int &n)
+		{
+			int numDigits = countDigits(n);
+			int numDIgitsA = numDigits;
+			int sum = 0, temp = n;
+			while(numDIgitsA--)
+			{
+				int a = temp % 10;
+				sum += powa(a, numDigits);
+				temp /= 10;
+			}
+			if(sum == n)
+				return true;
+			else
+				return false;
+		}
+		
 };
