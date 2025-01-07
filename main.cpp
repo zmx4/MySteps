@@ -1,29 +1,38 @@
-#include<iostream>
+#include <iostream>
 #include <vector>
+#include <cstdlib>
+#include <functional>
+#include <cstring>
+#include <algorithm>
+#define MAX_SIZE 100050
 using namespace std;
-int GCD1(int a,int b)
-{
-	while(b!=0)
-	{
-		int r=a%b;
-		a=b;
-		b=r;
-	}
-	return a;
-}
-
-int GCD2(int a,int b)
-{
-	if(b==0)
-		return a;
-	else
-		return GCD2(b,a%b);
-}
-
-int lcm(int a, int b)
-{
-	return a*b / GCD(a, b);
-}
+class myalg{
+	public:
+		//求最大公约数
+		int GCD1(int a, int b)
+		{
+			while (b != 0)
+			{
+				int r = a % b;
+				a = b;
+				b = r;
+			}
+			return a;
+		}
+		// 递归求最大公约数
+		int GCD2(int a, int b)
+		{
+			if (b == 0)
+				return a;
+			else
+				return GCD2(b, a % b);
+		}
+		// 求最小公倍数
+		int lcm(int a, int b)
+		{
+			return a * b / GCD1(a, b);
+		}
+};
 
 void insertsort(int a[], int n)
 {
@@ -89,4 +98,39 @@ void quicksort(int a[], int l, int r)
 		quicksort(a, l, i - 1);
 		quicksort(a, i + 1, r);
 	}
+}
+
+signed main()
+{
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	cout.tie(nullptr);
+	//int a[MAX_SIZE];
+	//memset(a, 0, sizeof(a));
+	int n;
+	cin >> n;
+	vector<int> a(n,0);
+	for (int i = 0; i < n;i++)
+	{
+		cin >> a[i];
+	}
+	//lambda
+	sort(a.begin(), a.end(), [](int a, int b){ return a > b; });
+	for (int i = 0; i < n;i++)
+	{
+		cout << a[i]<<" ";
+	}
+	cout << endl;
+	sort(a.begin(), a.end(), greater());
+	for (int i = 0; i < n; i++)
+	{
+		cout << a[i]<<" ";
+	}
+	cout << endl;
+	sort(a.begin(), a.end());
+	for (int i = 0; i < n; i++)
+	{
+		cout << a[i]<<" ";
+	}
+	cout << endl;
 }
