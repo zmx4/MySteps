@@ -25,10 +25,38 @@ public:
 	{
 		return a * b / GCD1(a, b);
 	}
+	//埃氏筛质数
+	int countPrimes(int n)
+	{
+		if(n < 3)
+			return 0;
+		int count = 0;
+		bool state[n];
+		for (int i = 0; i < n;i++)
+		{
+			state[i] = false;
+		}
+		for (int i = 2; i < n;i++)
+		{
+			if(!st[i])
+			{
+				count++;
+				for (int j = i + 1; i < n;j+=i)
+					state[i] = true;
+			}
+			return count;
+		}
+	}
 };
 class mysort{
 	public:
-		void quicksort(int a[], int l, int r)
+		virtual void quicksort(int a[], int l, int r);
+		virtual void insertsort(int a[], int n);
+};
+class uppersort:public mysort
+{
+	public:
+		virtual void quicksort(int a[], int l, int r)
 		{
 			if (l < r)
 			{
@@ -49,7 +77,7 @@ class mysort{
 				quicksort(a, i + 1, r);
 			}
 		}
-		void insertsort(int a[], int n)
+		virtual void insertsort(int a[], int n)
 		{
 			for (int j = 1; j < n; j++)
 			{
@@ -62,5 +90,41 @@ class mysort{
 				}
 				a[i + 1] = key;
 			}
+		}
+}
+class lowwersort:public mysort
+{
+	public:
+		virtual void insertsort(int a[], int n)
+		{
+			for (int j = 1; j < n; j++)
+			{
+				int key = a[j];
+				int i = j - 1;
+				while (i >= 0&&a[i]<key)
+				{
+					a[i + 1] = a[i];
+					i--;
+				}
+				a[i + 1] = key;
+			}
+		}
+}
+class myjudge{
+	public:
+		bool isPrime(int n)
+		{
+			if (n <= 1)
+				return false;
+			if (n == 2)
+				return true;
+			if (n % 2 == 0)
+				return false;
+			for (int i = 3; i * i <= n; i += 2)
+			{
+				if (n % i == 0)
+					return false;
+			}
+			return true;
 		}
 };
