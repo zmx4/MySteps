@@ -3,7 +3,7 @@
 #define ll long long
 using namespace std;
 
-const int N = 10010, M = 100010;
+const int N = 100010, M = 1000010;
 int n, m;
 char p[N], s[M];
 int ne[N];
@@ -20,7 +20,7 @@ signed main()
 	{
 		while (j && p[i] != p[j + 1])
 			j = ne[j];
-		if (s[i] == p[j + !])
+		if (p[i] == p[j + 1])
 			j++;
 		ne[i] = j;
 	}
@@ -30,7 +30,7 @@ signed main()
 	{
 		while (j && s[i] != p[j + 1])
 			j = ne[j];
-		if (s[j] == p[j + 1])
+		if (s[i] == p[j + 1])
 			j++;
 		if (j == n)
 		{
