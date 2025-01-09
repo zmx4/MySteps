@@ -59,12 +59,11 @@ signed main()
 		cout << a[i]<<" ";
 	}
 	cout << endl;
-	mysort:
-		lowwersort ms;
-		ms.insertsort(b, n);
-		
-		for (int i = 0; i < n; i++)
-		{
-			cout << b[i] << " ";
+	myalg::lowwersort ms;
+	ms.insertsort(b, n);
+
+	for (int i = 0; i < n; i++)
+	{
+		cout << b[i] << " ";
 	}
 }
