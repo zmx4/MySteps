@@ -8,7 +8,7 @@ C. Registration system
 CMakeLists.txt
 .idea/misc.xml
 .vscode/settings.json
-
+cmake-build-debug-vs/*
 //忽略所有的*.exe文件
 cmake-build-debug/*
 build/*
