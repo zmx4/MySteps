@@ -31,3 +31,4 @@ if(CMAKE_C_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 add_executable(MySteps main.cpp)
+add_executable(Try     test.cpp)

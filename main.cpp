@@ -60,7 +60,7 @@ signed main()
 	}
 	cout << endl;
 	myalg::lowwersort ms;
-	ms.insertsort(b, n);	
+	ms.insertsort(b, n);
 
 	for (int i = 0; i < n; i++)
 	{
