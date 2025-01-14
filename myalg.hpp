@@ -1,7 +1,7 @@
 #pragma once
 namespace myalg
 {
-	/// @brief 
+	
 	class myalg
 	{
 	public:
@@ -52,7 +52,7 @@ namespace myalg
 			}
 		}
 	};
-	/// @brief 
+	
 	class mysort
 	{
 	public:
