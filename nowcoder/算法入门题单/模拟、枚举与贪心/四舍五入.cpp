@@ -3,82 +3,64 @@
 #define ll long long
 using namespace std;
 
+string jw(string s)
+{
+	bool carry = true;
+	int p = s.size() - 1;
+	while (p >= 0)
+	{
+		int d = s[p] - '0' + carry;
+		carry = (d > 9);
+		s[p] = '0' + d % 10;
+		p--;
+	}
+	if (carry)
+		s = "1" + s;
+	return s;
+}
+int n, t;
+string num;
 signed main()
 {
 	ios::sync_with_stdio(false);
 	cin.tie(nullptr),cout.tie(nullptr);
 
-	int n, t;
+	
 	cin >> n >> t;
-	string num;
+	
 	cin >> num;
 	int carry = 0, carryx = 0;
 
-	size_t i = num.find('.');
-	i++;
-	while(num[i]!='.'&&t>0)
+	int i = num.find('.');
+	if (i == -1)
 	{
-		if(num[i+1]<='4')
+		cout << num << endl;
+		return 0;
+	}
+	i++;
+	for(;i<num.length();i++)
+	{
+		if(num[i]>='5')
 		{
-			i++;
-			continue;
-		}
-		else
-		{
-			if(carryx == 1)
+			num.erase(i--);
+			t--;
+			while (num[i] == '4' && t--)
+				num.erase(i--);
+			if (num[i] == '.')
 			{
-				if (num[i] <= '8')
-					num[i]++;
+				num.erase(i--);
+				while (num[i] == '9')
+					num[i--] = '0';
+				if(i==-1)
+					cout << 1;
 				else
-				{
-					num[i] = 0;
-					i--;
-				}
+					num[i]++;
 			}
-			if(num[i]<='8'&&t>0)
-			{
+			else
 				num[i]++;
-				num.erase(i + 1);
-				i--, t--;
-			}
-			else if (num[i] == '9' && t > 0)
-			{
-				carryx = 1;
-				num.erase(i);
-				i--, t--;
-			}
 		}
 	}
 	
-	if (carry == 1)
-	{
-		size_t index = num.find('.');
-		index--;
-		if (num[index] <= '8')
-			num[index]++, carry--;
-		else
-		{
-			num[index] = 0;
-			while (carry == 1 && index - 1 >= 0)
-			{
-				index--;
-				if (num[index] <= '8')
-					num[index]++, carry--;
-			}
-			if (index == 0 && carry == 1)
-			{
-				num = '1' + num;
-			}
-		}
-	}
-	// 去尾随的零
-	for(int i=num.length()-1;i>=0;i--)
-	{
-		if(num[i]=='0')
-			num.pop_back();
-		else
-			break;
-	}
 	cout << num << endl;
 	return 0;
 }
