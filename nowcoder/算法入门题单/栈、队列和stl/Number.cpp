@@ -38,7 +38,8 @@ signed main()
 {
 	ios::sync_with_stdio(false);
 	cin.tie(nullptr),cout.tie(nullptr);
-
+	char readBuffer[1 << 20];
+	cin.rdbuf()->pubsetbuf(readBuffer, sizeof(readBuffer));
 	init();
 	ll n;
 	cin >> n;
