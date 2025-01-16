@@ -1,20 +1,48 @@
 #include <bits/stdc++.h>
-#define endl "\n"
-#define ll long long
 using namespace std;
-int a[1000];
-signed main()
+typedef long long ll;
+bool prime(long long n)
 {
-	ios::sync_with_stdio(false);
-	cin.tie(nullptr),cout.tie(nullptr);
-	int tt = -1;
-	
-	for (int i = 0; i < 10;i++)
+	if (n == 1)
+		return 0;
+	if (n == 2)
+		return 1;
+	if (!(n & 1))
+		return 0;
+	for (long long i = 3; i * i <= n; i += 2)
+		if (!(n % i))
+			return 0;
+	return 1;
+}
+int main()
+{
+	ll t, n;
+	cin >> t;
+	while (t--)
 	{
-		a[++tt] = i;
+		cin >> n;
+		if (prime(n))
+		{
+			cout << "isprime" << endl
+				 << n;
+		}
+		else
+			cout << "noprime" << endl;
+		for (ll i = 2; i * i <= n; i++)
+		{
+			if (n % i == 0)
+			{
+				if (prime(i))
+				{
+					cout << i << " ";
+				}
+				if (prime(n / i) && n / i != i)
+				{
+					cout << n / i << " ";
+				}
+			}
+		}
+		cout << endl;
 	}
-	for (int i = 0; i < 10; i++)
-	{
-		cout << a[i];
-	}
+	return 0;
 }

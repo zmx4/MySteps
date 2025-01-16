@@ -36,20 +36,24 @@ namespace myalg
 				return 0;
 			int count = 0;
 			bool state[n];
-			for (int i = 0; i < n; i++)
+			for (int i = 2; i < n; i++)
 			{
 				state[i] = false;
+			}
+			for (int i = 2; i * i < n; i++)
+			{
+				if (!state[i])
+				{
+					for (int j = i * i; j < n; j += i)
+						state[j] = true;
+				}
 			}
 			for (int i = 2; i < n; i++)
 			{
 				if (!state[i])
-				{
 					count++;
-					for (int j = i + 1; i < n; j += i)
-						state[i] = true;
-				}
-				return count;
 			}
+			return count;
 		}
 	};
 	

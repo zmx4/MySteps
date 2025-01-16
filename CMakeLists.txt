@@ -32,3 +32,4 @@ endif()
 
 add_executable(MySteps main.cpp)
 add_executable(Try     test.cpp)
+include_directories(C:\\\\Env\\MSYS\\mingw64\\include)
