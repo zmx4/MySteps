@@ -6,7 +6,7 @@ namespace myalg
 	{
 	public:
 		// 求最大公约数
-		int GCD1(int a, int b)
+		int GCD1( int a, int b)
 		{
 			while (b != 0)
 			{
@@ -30,7 +30,7 @@ namespace myalg
 			return a * b / GCD1(a, b);
 		}
 		// 埃氏筛质数
-		int countPrimes(int n)
+		int countPrimes(const int &n)
 		{
 			if (n < 3)
 				return 0;
@@ -54,6 +54,24 @@ namespace myalg
 					count++;
 			}
 			return count;
+		}
+		// 快速幂
+		long long modExp(long long base,long long exp,const long long &mod)
+		{
+			long long result = 1;
+			base = base % mod; // 处理 base 大于 mod 的情况
+			while (exp > 0)
+			{
+				// 如果 exp 是奇数，将 base 乘到结果上
+				if (exp % 2 == 1)
+				{
+					result = (result * base) % mod;
+				}
+				// exp 是偶数，将 base 平方并减少 exp 一半
+				base = (base * base) % mod;
+				exp = exp / 2;
+			}
+			return result;
 		}
 	};
 	

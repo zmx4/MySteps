@@ -20,4 +20,3 @@ cmake-build-debug/*
 *.exe
 /A. Puzzles
 build/.cmake/api/v1/*
-folder-alias.json

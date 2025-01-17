@@ -1,0 +1,11 @@
+{
+    "pratice": {
+        "description": "练习"
+    },
+    "CMakeLists.txt": {
+        "description": "CMake配置文件"
+    },
+    "test.cpp": {
+        "description": "测试用"
+    }
+}
