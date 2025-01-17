@@ -1,48 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-bool prime(long long n)
+ll modExp(ll base, ll exp, ll mod)
 {
-	if (n == 1)
-		return 0;
-	if (n == 2)
+	if (exp == 0)
 		return 1;
-	if (!(n & 1))
-		return 0;
-	for (long long i = 3; i * i <= n; i += 2)
-		if (!(n % i))
-			return 0;
-	return 1;
+	ll result = 1;
+	base = base % mod;
+	while (exp > 0)
+	{
+		if (exp % 2 == 1)
+		{
+			result = (result * base) % mod;
+		}
+		base = (base * base) % mod;
+		exp = exp / 2;
+	}
+	return result;
 }
 int main()
 {
-	ll t, n;
-	cin >> t;
-	while (t--)
-	{
-		cin >> n;
-		if (prime(n))
-		{
-			cout << "isprime" << endl
-				 << n;
-		}
-		else
-			cout << "noprime" << endl;
-		for (ll i = 2; i * i <= n; i++)
-		{
-			if (n % i == 0)
-			{
-				if (prime(i))
-				{
-					cout << i << " ";
-				}
-				if (prime(n / i) && n / i != i)
-				{
-					cout << n / i << " ";
-				}
-			}
-		}
-		cout << endl;
-	}
+	ll a = 16,b=4,e = 65536;
+	cout << modExp(a,b,e) << endl;
 	return 0;
 }
