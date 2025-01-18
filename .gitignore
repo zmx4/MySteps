@@ -15,7 +15,7 @@ build/*
 .idea/*
 .vscode/*
 cmake-build-debug/*
-
+.cache/*
 //忽略*.exe文件
 *.exe
 /A. Puzzles
