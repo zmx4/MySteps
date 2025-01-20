@@ -1,8 +1,10 @@
 add_rules("mode.debug", "mode.release")
 
-target("C")
+add_cxflags("-O2", "-g", "-Wall", "-fPIC", "-std=c++20")
+
+target("CXX")
     set_kind("static")
-    add_files("7-2 她的眼神.c")
+    add_files("复习/*.cpp")
 
 
 --

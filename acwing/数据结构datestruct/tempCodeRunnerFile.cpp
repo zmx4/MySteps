@@ -1,2 +1,0 @@
-
-					cout << "Yes" << endl;
