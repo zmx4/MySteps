@@ -7,5 +7,8 @@
     },
     "test.cpp": {
         "description": "测试用"
+    },
+    "nowcoder/算法入门题单/数组、字符串及数据批量存储/数列下标.cpp": {
+        "description": "单调栈"
     }
 }

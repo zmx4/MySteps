@@ -1,0 +1,1 @@
+{"name":"Local: 数列下标","url":"d:\\Dev\\MySteps\\nowcoder\\算法入门题单\\数组、字符串及数据批量存储\\数列下标.cpp","tests":[{"id":1737334544554,"input":"6\n3 2 6 1 1 2","output":"3 3 0 6 6 0"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\nowcoder\\算法入门题单\\数组、字符串及数据批量存储\\数列下标.cpp","group":"local","local":true}

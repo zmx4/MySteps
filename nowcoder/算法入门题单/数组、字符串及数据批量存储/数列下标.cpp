@@ -3,7 +3,10 @@
 #define ll long long
 using namespace std;
 
-signed main()
+int stk[100010], tt;
+
+signed
+main()
 {
 	ios::sync_with_stdio(false);
 	cin.tie(nullptr),cout.tie(nullptr);
@@ -11,8 +14,22 @@ signed main()
 	int n;
 	cin >> n;
 	vector<int> a(n);
-	for (int i = 0; i < n; i++)
+	for (int i = 1; i <= n; i++)
+	{
 		cin >> a[i];
-
+	}
+	int ans[100010];
+	for (int i = n ; i > 0;i--)
+	{
+		int x = a[i];
+		while(tt&&a[stk[tt]]<=x)tt--;
+		if(tt)ans[i] = stk[tt];
+		else ans[i] = 0;
+		stk[++tt] = i;
+	}
+	for (int i = 1; i <= n; i++)
+	{
+		cout << ans[i] << " ";
+	}
 	return 0;
 }
