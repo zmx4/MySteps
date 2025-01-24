@@ -21,3 +21,4 @@ cmake-build-debug/*
 /A. Puzzles
 build/.cmake/api/v1/*
 .xmake/*
+.fleet/*

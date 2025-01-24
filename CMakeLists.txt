@@ -9,6 +9,11 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILECOMMANDS ON)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+include_directories(C:\\\\Env\\MSYS\\mingw64\\include)
+
 if(WIN32)
     set(CMAKE_EXECUTABLE_SUFFIX ".exe")
 endif()
@@ -32,4 +37,3 @@ endif()
 
 add_executable(MySteps main.cpp)
 add_executable(Try     test.cpp)
-include_directories(C:\\\\Env\\MSYS\\mingw64\\include)

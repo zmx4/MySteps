@@ -1,0 +1,14 @@
+[
+{
+  "directory": "D:/Dev/MySteps/build",
+  "command": "g++  @CMakeFiles/MySteps.dir/includes_CXX.rsp  -finput-charset=UTF-8 -fexec-charset=GBK -finput-charset=UTF-8 -fexec-charset=UTF-8 -O3 -march=native -g -std=gnu++20 -o CMakeFiles\\MySteps.dir\\main.cpp.obj -c D:\\Dev\\MySteps\\main.cpp",
+  "file": "D:/Dev/MySteps/main.cpp",
+  "output": "CMakeFiles/MySteps.dir/main.cpp.obj"
+},
+{
+  "directory": "D:/Dev/MySteps/build",
+  "command": "g++  @CMakeFiles/Try.dir/includes_CXX.rsp  -finput-charset=UTF-8 -fexec-charset=GBK -finput-charset=UTF-8 -fexec-charset=UTF-8 -O3 -march=native -g -std=gnu++20 -o CMakeFiles\\Try.dir\\test.cpp.obj -c D:\\Dev\\MySteps\\test.cpp",
+  "file": "D:/Dev/MySteps/test.cpp",
+  "output": "CMakeFiles/Try.dir/test.cpp.obj"
+}
+]
