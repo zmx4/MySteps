@@ -22,3 +22,5 @@ cmake-build-debug/*
 build/.cmake/api/v1/*
 .xmake/*
 .fleet/*
+*/.idea/*
+*/.vscode/*
