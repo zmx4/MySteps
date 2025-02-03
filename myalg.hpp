@@ -2,6 +2,7 @@
 #include <string>
 #include <cstring>
 #include <cstdlib>
+#include <cmath>
 namespace myalg
 {
 	
@@ -272,7 +273,7 @@ namespace myalg
 				return false;
 		}
 		// 判断是否是回文数
-		bool isPalindrome(string_view str)
+		bool isPalindrome(std::string_view str)
 		{
 			int i = 0, j = str.size() - 1;
 			while (i < j)
