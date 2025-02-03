@@ -1,4 +1,7 @@
 #pragma once
+#include <string>
+#include <cstring>
+#include <cstdlib>
 namespace myalg
 {
 	
@@ -54,6 +57,48 @@ namespace myalg
 					count++;
 			}
 			return count;
+		}
+		// 使用埃氏筛算法生成区间 [l, r] 内的质数
+		std::vector<int> generatePrimesSieve(int l, int r)
+		{
+			// 构造大小为 r+1 的布尔数组，初始值全部设为 true
+			std::vector<bool> isPrime(r + 1, true);
+
+			// 0 和 1 不是质数
+			if (r >= 0)
+				isPrime[0] = false;
+			if (r >= 1)
+				isPrime[1] = false;
+
+			// 遍历到 sqrt(r)，因为超过 sqrt(r) 的 i 没有必要再筛
+			int limit = std::sqrt(r);
+			for (int i = 2; i <= limit; i++)
+			{
+				if (isPrime[i])
+				{
+					// 从 i*i 开始标记所有 i 的倍数为非质数
+					for (int j = i * i; j <= r; j += i)
+					{
+						isPrime[j] = false;
+					}
+				}
+			}
+
+			// 收集大于等于 l 的质数（注意：质数起始从 2 开始）
+			std::vector<int> primes;
+			for (int i = std::max(l, 2); i <= r; i++)
+			{
+				if (isPrime[i])
+				{
+					primes.push_back(i);
+				}
+			}
+			return primes;
+		}
+		//求曼哈顿距离
+		int manhattanDistance(int x1, int y1, int x2, int y2)
+		{
+			return std::abs(x1 - x2) + std::abs(y1 - y2);
 		}
 		// 快速幂
 		long long modExp(long long base,long long exp,const long long &mod)
@@ -185,6 +230,7 @@ namespace myalg
 		}
 
 	public:
+		// 判断是否是质数
 		bool isPrime(const int &n)
 		{
 			if (n <= 1)
@@ -200,6 +246,7 @@ namespace myalg
 			}
 			return true;
 		}
+		// 判断是否是水仙花数
 		bool isNarcissistic(const int &n)
 		{
 			int numDigits = countDigits(n);
@@ -216,12 +263,26 @@ namespace myalg
 			else
 				return false;
 		}
+		// 判断是否是闰年
 		bool isLeapYear(const int &year)
 		{
 			if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
 				return true;
 			else
 				return false;
+		}
+		// 判断是否是回文数
+		bool isPalindrome(string_view str)
+		{
+			int i = 0, j = str.size() - 1;
+			while (i < j)
+			{
+				if (str[i] != str[j])
+					return false;
+				i++;
+				j--;
+			}
+			return true;
 		}
 	};
 } // namespace myalg
