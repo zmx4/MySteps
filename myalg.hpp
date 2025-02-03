@@ -124,13 +124,15 @@ namespace myalg
 	class mysort
 	{
 	public:
+		virtual ~mysort() {}
+
 		virtual void quicksort(int a[], int l, int r);
 		virtual void insertsort(int a[], int n);
 	};
 	class uppersort : public mysort
 	{
 	public:
-		virtual void quicksort(int a[], int l, int r)
+		virtual void quicksort(int a[], int l, int r) override
 		{
 			if (l < r)
 			{
@@ -151,7 +153,7 @@ namespace myalg
 				quicksort(a, i + 1, r);
 			}
 		}
-		virtual void insertsort(int a[], int n)
+		virtual void insertsort(int a[], int n) override
 		{
 			for (int j = 1; j < n; j++)
 			{
@@ -169,7 +171,7 @@ namespace myalg
 	class lowwersort : public mysort
 	{
 	public:
-		virtual void insertsort(int a[], int n)
+		virtual void insertsort(int a[], int n) override
 		{
 			for (int j = 1; j < n; j++)
 			{
@@ -183,7 +185,7 @@ namespace myalg
 				a[i + 1] = key;
 			}
 		}
-		virtual void quicksort(int a[], int l, int r)
+		virtual void quicksort(int a[], int l, int r) override
 		{
 			if (l < r)
 			{
@@ -208,7 +210,7 @@ namespace myalg
 	class myjudge
 	{
 	private:
-		long long powa(int n, int s)
+		long long powa(int n, int s) 
 		{
 			long long total = 1;
 			while (s--)
