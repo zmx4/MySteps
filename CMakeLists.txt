@@ -12,7 +12,7 @@ set(CMAKE_EXPORT_COMPILECOMMANDS ON)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-include_directories(C:\\\\Env\\MSYS\\mingw64\\include)
+
 
 if(WIN32)
     set(CMAKE_EXECUTABLE_SUFFIX ".exe")
@@ -28,12 +28,14 @@ endif()
 if(CMAKE_C_COMPILER_ID MATCHES "GNU" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -O2")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -O3 -march=native")
+	include_directories(C:\\\\Env\\MSYS\\mingw64\\include)
 endif()
 
 if(CMAKE_C_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -finput-charset=UTF-8 -fexec-charset=UTF-8")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -finput-charset=UTF-8 -fexec-charset=UTF-8 -O3 -march=native")
+	include_directories(C:\\\\Env\\MSYS\\mingw64\\include)
 endif()
 
-#add_executable(MySteps main.cpp)
+add_executable(MySteps main.cpp)
 add_executable(Try     test.cpp)

@@ -39,7 +39,7 @@ namespace myalg
 			if (n < 3)
 				return 0;
 			int count = 0;
-			bool state[n];
+			bool state[100000];
 			for (int i = 2; i < n; i++)
 			{
 				state[i] = false;
