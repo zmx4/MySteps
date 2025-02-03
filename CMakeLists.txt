@@ -37,5 +37,5 @@ if(CMAKE_C_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 	include_directories(C:\\\\Env\\MSYS\\mingw64\\include)
 endif()
 
-add_executable(MySteps main.cpp)
+#add_executable(MySteps main.cpp)
 add_executable(Try     test.cpp)
