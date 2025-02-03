@@ -35,5 +35,5 @@ if(CMAKE_C_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -finput-charset=UTF-8 -fexec-charset=UTF-8 -O3 -march=native")
 endif()
 
-add_executable(MySteps main.cpp)
+#add_executable(MySteps main.cpp)
 add_executable(Try     test.cpp)
