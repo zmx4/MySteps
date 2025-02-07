@@ -29,7 +29,7 @@ void solve()
 	cin >> s;
 
 	ll cntW = 0;
-	for (auto c : s)
+	for (char c : s)
 	{
 		if (c == '?')
 			cntW++;
@@ -37,47 +37,48 @@ void solve()
 
 	if (n == 1)
 	{
-		if(s[0] == '?')
+		if (s[0] == '?')
 			cout << 2 << endl;
 		else
 			cout << 1 << endl;
+		return;
 	}
 
-	ll equal_count = 0, unequal_count = 0;
+	ll cnt1 = 0, cnt2 = 0;
 	if (s[0] == '?' && s[n - 1] == '?')
 	{
-		equal_count = 2;
-		unequal_count = 2;
+		cnt1 = 2;
+		cnt2 = 2;
 	}
 	else if ((s[0] == '?' && s[n - 1] != '?') || (s[0] != '?' && s[n - 1] == '?'))
 	{
-		equal_count = 1;
-		unequal_count = 1;
+		cnt1 = 1;
+		cnt2 = 1;
 	}
 	else
 	{
 		if (s[0] == s[n - 1])
 		{
-			equal_count = 1;
-			unequal_count = 0;
+			cnt1 = 1;
+			cnt2 = 0;
 		}
 		else
 		{
-			equal_count = 0;
-			unequal_count = 1;
+			cnt1 = 0;
+			cnt2 = 1;
 		}
 	}
 
-	int boundaryQ = 0;
+	int edge = 0;
 	if (s[0] == '?')
-		boundaryQ++;
+		edge++;
 	if (s[n - 1] == '?')
-		boundaryQ++;
+		edge++;
 
-	ll rem = cntW - boundaryQ;
-	ll weight = (equal_count * (n - 2) + unequal_count * 2) % MOD;
+	ll rem = cntW - edge;
+	ll val = (cnt1 * (n - 2) + cnt2 * 2) % MOD;
 
-	ll ans = (weight * modexp(2, rem, MOD)) % MOD;
+	ll ans = (val * modexp(2, rem, MOD)) % MOD;
 
 	cout << ans % MOD << endl;
 }

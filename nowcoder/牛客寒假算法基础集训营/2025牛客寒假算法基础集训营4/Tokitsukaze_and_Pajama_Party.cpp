@@ -14,7 +14,11 @@ void solve()
     qz[0] = (str[0] == 'u');
     for (int i = 1; i < n; i++)
     {
-        qz[i] = qz[i - 1] + (str[i] == 'u');
+        qz[i] = qz[i - 1];
+        if(str[i] == 'u')
+        {
+            qz[i]++;
+        }
     }
 
     ll ans = 0;
