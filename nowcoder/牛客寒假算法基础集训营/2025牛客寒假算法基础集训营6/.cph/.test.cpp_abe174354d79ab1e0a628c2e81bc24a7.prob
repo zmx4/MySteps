@@ -1,0 +1,1 @@
+{"name":"Local: test","url":"d:\\Dev\\2025牛客寒假算法基础集训营6\\test.cpp","tests":[{"id":1739252947008,"input":"6\n7\nCHICKEN\n9\nCHOICKPEN\n9\nCHIZCKZEN\n10\nCHIXYZCKEN\n11\nCZZHIYCXKEN\n13\nCOOOOHICKENZW","output":"YES\nYES\nNO\nNO\nYES\nNO"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\2025牛客寒假算法基础集训营6\\test.cpp","group":"local","local":true}
