@@ -1,15 +1,16 @@
 add_rules("mode.debug", "mode.release")
 
 
-set_languages("c23", "c++20")
+set_languages("c23", "c++23")
 
 add_includedirs("C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include")
 
 add_includedirs("C:/Env/MSYS/mingw64/include")
 
-target("test")
+target("nowcoder")
 	set_kind("binary")
-	add_files("src/*.c")
+	add_files("nowcoder/*/*.cpp")
+	
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
