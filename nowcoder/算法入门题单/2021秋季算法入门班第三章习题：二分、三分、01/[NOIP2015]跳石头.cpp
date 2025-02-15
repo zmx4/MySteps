@@ -2,10 +2,10 @@
 #define endl "\n"
 #define ll long long
 using namespace std;
-const LL MAXNUM = 1e6+10;
+const ll MAXNUM = 1e6+10;
 int a[MAXNUM];
 
-bool check()
+
 
 signed main()
 {

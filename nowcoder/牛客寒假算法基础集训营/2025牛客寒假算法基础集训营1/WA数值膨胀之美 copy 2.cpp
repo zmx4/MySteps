@@ -28,8 +28,8 @@ int main()
 			continue;
 		}
 		// Calculate the new max and min values after doubling the subarray [i, j-1]
-		long long new_max = max((long long)a[n - 1], a[j - 1] * 2);
-		long long new_min = min((long long)a[0] * 2, a[i]);
+		long long new_max = max(a[n - 1], a[j - 1] * 2);
+		long long new_min = min(a[0] * 2, a[i]);
 		min_diff = min(min_diff, new_max - new_min);
 		i++;
 	}

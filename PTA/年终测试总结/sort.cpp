@@ -1,4 +1,5 @@
-#include<stdio.h>int a[10]={25,65,41,25,68,45,11,
+#include<stdio.h>
+int a[10]={25,65,41,25,68,45,11,
 25};
 
 void sort()

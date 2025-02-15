@@ -3,7 +3,7 @@
 #define ll long long
 using namespace std;
 
-const int N = 1e5 + 10;
+const int N = 1e6 + 10;
 
 int h[N], e[N], ne[N], idx;
 
@@ -11,10 +11,10 @@ void add(int a, int b)
 {
 	e[idx] = b, ne[idx] = h[a], h[a] = idx++;
 }
-
+vector<int> ans;
 int s, t;
 bool st[N];
-int dfs(int u, int len)
+int dfs(int u)
 {
 	if (u == t)
 		return 1;
@@ -22,11 +22,14 @@ int dfs(int u, int len)
 	for (int i = h[u]; i != -1; i = ne[i])
 	{
 		int j = e[i];
-		if (!st[j])
-			if (dfs(j, len + 1))
-				return len;
+		if (!st[j] && (ne[ne[h[j]]] == -1 || u == s || u == t))
+			if (dfs(j))
+			{
+				cout<<j<<endl;
+				return 1;
+			}
 	}
-	return -1;
+	return 0;
 }
 
 signed main()
@@ -41,10 +44,13 @@ signed main()
 	{
 		int x, y;
 		cin >> x >> y;
-		add(x, y), add(y, x);
+		add(x, y);
 	}
 
 	cin >> s >> t;
-
+	if (dfs(s))
+		cout << "Tangled" << endl;
+	else
+		cout << "Not Tangled" << endl;
 	return 0;
 }

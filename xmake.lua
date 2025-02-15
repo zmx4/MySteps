@@ -5,13 +5,23 @@ set_languages("c23", "c++23")
 
 add_includedirs("C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include")
 
-add_includedirs("C:/Env/MSYS/mingw64/include")
+add_includedirs("C:/Env/MSYS/mingw64/include/c++/14.2.0")
+
+add_includedirs("C:/Env/MSYS/mingw64/include/c++/14.2.0/x86_64-w64-mingw32")
 
 target("nowcoder")
 	set_kind("binary")
-	add_files("nowcoder/*/*.cpp")
-	
+	add_includedirs("C:/Env/MSYS/mingw64/include")
+	set_toolset("cxx", "gcc")
+	add_files("nowcoder/*/*/*.cpp")
+	set_optimize("faster")
 
+target("PTA")
+	set_kind("binary")
+	add_includedirs("C:/Env/MSYS/mingw64/include")
+	set_toolset("cxx", "gcc")
+	add_files("PTA/*/*.cpp")
+	set_optimize("faster")
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
 --  
