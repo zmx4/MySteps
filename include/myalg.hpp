@@ -120,10 +120,10 @@ namespace myalg
 			return result;
 		}
 		// 通项公式求斐波那契数列第 n 项
-		ll fibonacci(ll n)
+		long long fibonacci(long long n)
 		{
 			double phi = (1 + std::sqrt(5)) / 2; // 黄金比例
-			return static_cast<ll>((std::pow(phi, n) - std::pow(1 - phi, n)) / std::sqrt(5));
+			return static_cast<long long>((std::pow(phi, n) - std::pow(1 - phi, n)) / std::sqrt(5));
 		}
 		// 反转整数
 		int reverseNumber(int n)
