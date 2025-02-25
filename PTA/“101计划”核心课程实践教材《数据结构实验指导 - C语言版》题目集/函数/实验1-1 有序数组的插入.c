@@ -51,10 +51,6 @@ int main(void)
 /* 你的代码将被嵌在这里 */
 bool DecrSeqInsert(ArrPtr array, ElemSet x)
 {
-	if (array->size > 0 && x > array->data[0])
-	{
-		return false;
-	}
 	for (int i = 0; i < array->size; i++)
 	{
 		if (array->data[i] <= x)
@@ -65,10 +61,16 @@ bool DecrSeqInsert(ArrPtr array, ElemSet x)
 			{
 				array->data[j] = array->data[j - 1];
 			}
-		array->data[i] = x;
-		array->size++;
-		return true;
+			array->data[i] = x;
+			array->size++;
+			return true;
 		}
+	}
+	if (array->data[array->size - 1] >= x && array->size < kMaxSize)
+	{
+		array->size++;
+		array->data[array->size - 1] = x;
+		return true;
 	}
 	return false;
 }
