@@ -3,14 +3,15 @@
 #include <cstring>
 #include <cstdlib>
 #include <cmath>
+#include <vector>
 namespace myalg
 {
-	
+
 	class myalg
 	{
 	public:
 		// 求最大公约数
-		int GCD1( int a, int b)
+		int GCD1(int a, int b)
 		{
 			while (b != 0)
 			{
@@ -96,13 +97,13 @@ namespace myalg
 			}
 			return primes;
 		}
-		//求曼哈顿距离
+		// 求曼哈顿距离
 		int manhattanDistance(int x1, int y1, int x2, int y2)
 		{
 			return std::abs(x1 - x2) + std::abs(y1 - y2);
 		}
 		// 快速幂
-		long long modExp(long long base,long long exp,const long long &mod)
+		long long modExp(long long base, long long exp, const long long &mod)
 		{
 			long long result = 1;
 			base = base % mod; // 处理 base 大于 mod 的情况
@@ -125,6 +126,28 @@ namespace myalg
 			double phi = (1 + std::sqrt(5)) / 2; // 黄金比例
 			return static_cast<long long>((std::pow(phi, n) - std::pow(1 - phi, n)) / std::sqrt(5));
 		}
+		// 求斐波那契数递归方法（带备忘录）
+		long long fib_recursive(int n, std::vector<long long> &memo)
+		{
+			if (memo[n] != -1)
+				return memo[n];
+			memo[n] = fib_recursive(n - 1, memo) + fib_recursive(n - 2, memo);
+			return memo[n];
+		}
+		// 求斐波那契数循环方法
+		long long fib_iterative(int n)
+		{
+			if (n < 2)
+				return 1;
+			long long a = 1, b = 1;
+			for (int i = 2; i <= n; i++)
+			{
+				long long c = a + b;
+				a = b;
+				b = c;
+			}
+			return b;
+		}
 		// 反转整数
 		int reverseNumber(int n)
 		{
@@ -138,7 +161,7 @@ namespace myalg
 			return reversed;
 		}
 	};
-	
+
 	class mysort
 	{
 	public:
@@ -228,7 +251,7 @@ namespace myalg
 	class myjudge
 	{
 	private:
-		long long powa(int n, int s) 
+		long long powa(int n, int s)
 		{
 			long long total = 1;
 			while (s--)
