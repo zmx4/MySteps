@@ -6,29 +6,44 @@ using namespace std;
 signed main()
 {
 	ios::sync_with_stdio(false);
-	cin.tie(nullptr),cout.tie(nullptr);
+	cin.tie(nullptr), cout.tie(nullptr);
 	char readBuffer[1 << 20];
 	cin.rdbuf()->pubsetbuf(readBuffer, sizeof(readBuffer));
 
 	int n;
 	cin >> n;
-	vector<int> a(n),qz(n + 1);
-	for (int i = 0;i < n;++i)
+	vector<int> a(n);
+	bool flag = false;
+	for (int i = 0; i < n; i++)
+	{
 		cin >> a[i];
-	for (int i = 1;i <= n;++i)
-		qz[i] = qz[i - 1] + a[i - 1];
-
-	int posb = -1,pose = -1,maxs = INT_MIN;
-	for(int i = 0;i < n;++i)
-		for (int j = i;j < n;++j)
+		if (a[i] > 0)
+			flag = true;
+	}
+	if (!flag)
+	{
+		cout << 0 << endl
+			 << "-1 -1" << endl;
+		return 0;
+	}
+	int sum = 0, ans = 0, l = 0, r = 0, templ = 0;
+	for (int i = 0; i < n; i++)
+	{
+		sum += a[i];
+		if (sum > ans)
 		{
-			if (qz[j + 1] - qz[i] > maxs)
-			{
-				maxs = qz[j + 1] - qz[i];
-				posb = i,pose = j;
-			}
+			ans = sum;
+			l = templ;
+			r = i;
 		}
-	cout << maxs << endl;
-	cout << posb + 1 << " " << pose + 1 << endl;
+		if (sum < 0)
+		{
+			sum = 0;
+			templ = i + 1;
+		}
+	}
+	cout << ans << endl
+		 << l + 1 << " " << r + 1 << endl;
+
 	return 0;
 }
