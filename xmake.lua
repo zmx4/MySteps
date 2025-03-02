@@ -1,8 +1,5 @@
 add_rules("mode.debug", "mode.release")
 
-
-set_languages("c23", "c++23")
-
 add_includedirs("C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include")
 
 add_includedirs("C:/Env/MSYS/mingw64/include/c++/14.2.0")
@@ -16,6 +13,7 @@ target("nowcoder")
 	set_toolset("cxx", "gcc")
 	add_files("nowcoder/*/*/*.cpp")
 	set_optimize("faster")
+	set_languages("c23", "c++23")
 
 target("PTA")
 	set_kind("binary")
@@ -24,6 +22,7 @@ target("PTA")
 	set_toolset("cxx", "gcc")
 	add_files("PTA/*/*.cpp")
 	set_optimize("faster")
+	set_languages("c23", "c++20")
 
 target("LuoGu")
 	set_kind("binary")
@@ -32,6 +31,7 @@ target("LuoGu")
 	set_toolset("cxx", "gcc")
 	add_files("Lg/*/*.cpp")
 	set_optimize("faster")
+	set_languages("c23", "c++20")
 
 target("acwing")
 	set_kind("binary")
@@ -40,6 +40,7 @@ target("acwing")
 	set_toolset("cxx", "gcc")
 	add_files("acwing/*/*.cpp")
 	set_optimize("faster")
+	set_languages("c23", "c++20")
 
 -- If you want to known more usage about xmake, please see https://xmake.io
 --  
