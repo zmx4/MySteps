@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+#define endl "\n"
+#define ll long long
+using namespace std;
+
+signed main()
+{
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr),cout.tie(nullptr);
+
+	string s;
+	getline(cin, s);
+	int pos,len;
+	cin >> pos >> len;
+	s.erase(pos-1, len);
+	cout << s << endl;
+
+	return 0;
+}

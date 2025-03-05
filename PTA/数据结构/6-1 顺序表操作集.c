@@ -82,12 +82,12 @@ bool Insert(List L, ElementType X, Position P)
 {
 	if (L->Last == MAXSIZE - 1)
 	{
-		puts("FULL");
+		printf("FULL");
 		return false;
 	}
 	if (P < 0 || P > L->Last + 1)
 	{
-		puts("ILLEGAL POSITION");
+		printf("ILLEGAL POSITION");
 		return false;
 	}
 	for (int i = L->Last; i >= P; i--)
@@ -103,7 +103,7 @@ bool Delete(List L, Position P)
 {
 	if (P < 0 || P > L->Last)
 	{
-		printf("POSITION %d EMPTY\n", P);
+		printf("POSITION %d EMPTY", P);
 		return false;
 	}
 	for (int i = P; i < L->Last; i++)
