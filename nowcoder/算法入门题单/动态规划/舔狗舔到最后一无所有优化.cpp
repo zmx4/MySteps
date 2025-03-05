@@ -2,18 +2,23 @@
 #define endl "\n"
 #define ll long long
 using namespace std;
+const int MOD = 1e9+7;
 
 void solve()
 {
 	int n;
 	cin >> n;
-	ll f[100];
-	f[0] = 1, f[1] = 1;
-	for (int i = 2; i <= 100; i++)
+	vector<int> dp(n, 0);
+	dp[1]=3;
+	if (n >= 2)
 	{
-		f[i] = f[i - 1] + f[i - 2];
+		dp[2] = 9;
 	}
-	cout << f[n] << endl;
+	for (int i = 3; i <= n;i++)
+	{
+		dp[i] = (dp[i - 1] * 2 % MOD + dp[i - 2] * 2 % MOD) % MOD;
+	}
+	cout << (dp[n]) % MOD << endl;
 }
 
 signed main()

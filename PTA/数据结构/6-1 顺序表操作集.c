@@ -60,6 +60,7 @@ int main()
 }
 
 /* 你的代码将被嵌在这里 */
+// 创建空线性表
 List MakeEmpty()
 {
 	List L = (List)malloc(sizeof(struct LNode));
