@@ -1,69 +1,23 @@
-#include <iostream>
-#include <vector>
-#include <cstdlib>
-#include <functional>
-#include <cstring>
-#include <algorithm>
-#include "myalg.hpp"
-#define MAX_SIZE 100050
+#include <bits/stdc++.h>
 using namespace std;
-char *StrStr(const char *txt, const char *pat)
-{
-	if(pat[0]=='\0')return NULL;
-	int n = strlen(txt);
-	int m = strlen(pat);
-	for(int i = 0;i<=n-m;i++)
-	{
-		int j = 0;
-		while(j<m&&txt[i+j]==pat[j])
-			j++;
-		if(j==m)
-			return (char*)txt+i;
-	}
-	return NULL;
-}
 
-
-
-signed main()
+int main()
 {
 	ios::sync_with_stdio(false);
 	cin.tie(nullptr);
-	cout.tie(nullptr);
-	int b[MAX_SIZE];
-	memset(b, 0, sizeof(b));
-	int n;
-	cin >> n;
-	vector<int> a(n,0);
-	for (int i = 0; i < n;i++)
-	{
-		cin >> a[i];
-		b[i] = a[i];
-	}
-	//lambda
-	sort(a.begin(), a.end(), [](int a, int b){ return a > b; });
-	for (int i = 0; i < n;i++)
-	{
-		cout << a[i]<<" ";
-	}
-	cout << endl;
-	sort(a.begin(), a.end(), greater());
-	for (int i = 0; i < n; i++)
-	{
-		cout << a[i]<<" ";
-	}
-	cout << endl;
-	sort(a.begin(), a.end());
-	for (int i = 0; i < n; i++)
-	{
-		cout << a[i]<<" ";
-	}
-	cout << endl;
-	myalg::lowwersort ms;
-	ms.insertsort(b, n);
 
-	for (int i = 0; i < n; i++)
+	int N;
+	cin >> N;
+	int low = 0, high = INT_MAX;
+	while (N--)
 	{
-		cout << b[i] << " ";
+		int A, B;
+		cin >> A >> B;
+		int cur_low = A / (B + 1) + 1; // 最小可能的 V
+		int cur_high = A / B;		   // 最大可能的 V
+		low = max(low, cur_low);
+		high = min(high, cur_high);
 	}
+	cout << low << " " << high << "\n";
+	return 0;
 }
