@@ -1,0 +1,1 @@
+{"name":"Local: B2064 斐波那契数列","url":"d:\\Dev\\MySteps\\lg\\problemset\\B2064 斐波那契数列.cpp","tests":[{"id":1741347911946,"input":"4\n5\n2\n19\n1","output":"5\n1\n4181\n1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\lg\\problemset\\B2064 斐波那契数列.cpp","group":"local","local":true}

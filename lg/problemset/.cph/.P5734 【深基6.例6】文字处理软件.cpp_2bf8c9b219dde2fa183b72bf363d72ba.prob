@@ -1,0 +1,1 @@
+{"name":"Local: P5734 【深基6","url":"d:\\Dev\\MySteps\\lg\\problemset\\P5734 【深基6.例6】文字处理软件.cpp","tests":[{"id":1741348283552,"input":"4\nILove\n1 Luogu\n2 5 5\n3 3 guGugu\n4 gu","output":"ILoveLuogu\nLuogu\nLuoguGugugu\n3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\lg\\problemset\\P5734 【深基6.例6】文字处理软件.cpp","group":"local","local":true}
