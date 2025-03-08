@@ -1,23 +1,26 @@
-#include <bits/stdc++.h>
+#include <ctime>
+#include <iostream>
+#include <unordered_map>
 using namespace std;
 
-int main()
-{
-	ios::sync_with_stdio(false);
-	cin.tie(nullptr);
+const int N = 2e5;
 
-	int N;
-	cin >> N;
-	int low = 0, high = INT_MAX;
-	while (N--)
-	{
-		int A, B;
-		cin >> A >> B;
-		int cur_low = A / (B + 1) + 1; // 最小可能的 V
-		int cur_high = A / B;		   // 最大可能的 V
-		low = max(low, cur_low);
-		high = min(high, cur_high);
-	}
-	cout << low << " " << high << "\n";
-	return 0;
+void insert_numbers(long long x) {
+    clock_t begin = clock();
+    unordered_map<long long, int> numbers;
+
+    for (int i = 1; i <= N; i++)
+        numbers[i * x] = i;
+
+    long long sum = 0;
+
+    // for (auto &entry : numbers)
+    //     sum += (entry.first / x) * entry.second;
+
+    printf("x = %lld: %.3lf seconds, sum = %lld\n", x, (double) (clock() - begin) / CLOCKS_PER_SEC, sum);
+}
+
+int main() {
+    insert_numbers(107897);
+    insert_numbers(126271);
 }
