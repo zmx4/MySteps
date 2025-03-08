@@ -10,5 +10,8 @@
     },
     "nowcoder/算法入门题单/数组、字符串及数据批量存储/数列下标.cpp": {
         "description": "单调栈"
+    },
+    "lg/problemset/P1216 [IOI 1994] 数字三角形 Number Triangles.cpp": {
+        "description": "dp"
     }
 }

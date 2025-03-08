@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/Dev/MySteps/codeforces/2025年2月16日",
-      "program": "d:/Dev/MySteps/codeforces/2025年2月16日/build/Debug/outDebug",
+      "cwd": "d:/Dev/MySteps/codeforces/2025年3月",
+      "program": "d:/Dev/MySteps/codeforces/2025年3月/build/Debug/outDebug",
       "MIMode": "lldb",
       "miDebuggerPath": "C:\\Env\\MSYS\\mingw64\\bin\\",
       "setupCommands": [
