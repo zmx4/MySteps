@@ -1,0 +1,1 @@
+{"name":"Local: P3383 【模板】线性筛素数","url":"d:\\Dev\\MySteps\\lg\\problemset\\P3383 【模板】线性筛素数.cpp","tests":[{"id":1741747680331,"input":"100 5\n1\n2\n3\n4\n5","output":"2\n3\n5\n7\n11"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\lg\\problemset\\P3383 【模板】线性筛素数.cpp","group":"local","local":true}

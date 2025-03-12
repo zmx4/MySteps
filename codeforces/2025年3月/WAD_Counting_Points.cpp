@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+#define endl "\n"
+#define ll long long
+using namespace std;
+
+void solve()
+{
+    int n,m;
+    cin>>n>>m;
+    vector<int> x(n),r(n);
+    for(int i = 0;i < n;i++)cin>>x[i];
+    for(int i = 0;i < n;i++)cin>>r[i];
+    int ans = 0;
+    map<int,int> mp;
+    
+}
+
+signed main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr),cout.tie(nullptr);
+    char readBuffer[1 << 20];
+    cin.rdbuf()->pubsetbuf(readBuffer, sizeof(readBuffer));
+
+    int T;cin>>T;
+    while(T--)
+    {
+        solve();
+    }
+    
+    return 0;
+}
