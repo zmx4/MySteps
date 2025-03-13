@@ -24,20 +24,20 @@ int main()
 /* 你的代码将被嵌在这里 */
 struct ListNode *createlist()
 {
-	struct ListNode *head = (struct ListNode *)malloc(sizeof(ListNode));
-	head->next = NULL;
-	struct ListNode *p = head;
+	struct ListNode *L, *s;
+	L = (struct ListNode *)malloc(sizeof(struct ListNode));
+	L->next = NULL;
+	
 	int n;
-	while(scanf("%d", &n) != EOF)
+	while(1)
 	{
-		ListNode *node = (struct ListNode *)malloc(sizeof(ListNode));
-		node->data = n;
-		node->next = NULL;
-		p->next = node;
-		p = node;
+		scanf("%d", &n);
+		if(n < 0)
+			break;
+		s = (struct ListNode *)malloc(sizeof(struct ListNode));
+		s->data = n;
+		s->next = L->next;
+		L->next = s;
 	}
-	struct ListNode *q = head;
-	head = head->next;
-	free(q);
-	return head;
+	return L->next;
 }
