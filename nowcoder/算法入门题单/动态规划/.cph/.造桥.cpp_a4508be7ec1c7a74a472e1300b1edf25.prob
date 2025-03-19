@@ -1,0 +1,1 @@
+{"name":"Local: 造桥","url":"d:\\Dev\\MySteps\\nowcoder\\算法入门题单\\动态规划\\造桥.cpp","tests":[{"id":1742373773700,"input":"1\n6\nab\nbaabc\nbb\nba\nba\nad","output":"8"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\nowcoder\\算法入门题单\\动态规划\\造桥.cpp","group":"local","local":true}
