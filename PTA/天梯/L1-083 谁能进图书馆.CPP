@@ -9,40 +9,41 @@ int main()
 	int adult = max(c, d);
 	int child = min(c, d);
 
-	if (adult >= b && child < a)
+	if (c >= a && d >= a) 
 	{
 		printf("%d-Y %d-Y\n", c, d);
-		if (c > d)
+		printf("huan ying ru guan");
+	}
+	else if (c >= a && d < a)
+	{
+		if (c >= b)
 		{
-			printf("qing 1 zhao gu hao 2\n");
+			printf("%d-Y %d-Y\n", c, d);
+			printf("qing 1 zhao gu hao 2");
 		}
 		else
-		{
-			printf("qing 2 zhao gu hao 1\n");
-		}
-	}
-	else if (adult >= b && child >= b)
-	{
-		printf("%d-Y %d-Y\n", c, d);
-		printf("huan ying ru guan\n");
-	}
-	else if ((adult < b && adult > a) && child < a)
-	{
-		if (c > d)
 		{
 			printf("%d-Y %d-N\n", c, d);
-			printf("1: huan ying ru guan\n");
-		}
-		else
-		{
-			printf("%d-N %d-Y\n", c, d);
-			printf("2: huan ying ru guan\n");
+			printf("1: huan ying ru guan");
 		}
 	}
-	else if (adult < a && child < a)
+	else if (d >= a && c < a)
+	{
+		if (d >= b) 
+		{
+			printf("%d-Y %d-Y\n", c, d);
+			printf("qing 2 zhao gu hao 1");
+		}
+		else 
+		{
+			printf("%d-N %d-Y\n", c, d);
+			printf("2: huan ying ru guan");
+		}
+	}
+	else
 	{
 		printf("%d-N %d-N\n", c, d);
-		printf("zhang da zai lai ba\n");
+		printf("zhang da zai lai ba");
 	}
 
 	return 0;
