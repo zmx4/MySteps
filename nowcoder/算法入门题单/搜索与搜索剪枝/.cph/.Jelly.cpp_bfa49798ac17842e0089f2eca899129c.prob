@@ -1,0 +1,1 @@
+{"name":"Local: Jelly","url":"d:\\Dev\\MySteps\\nowcoder\\算法入门题单\\搜索与搜索剪枝\\Jelly.cpp","tests":[{"id":1742952235426,"input":"2\n.*\n..\n*.\n..","output":"4"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\nowcoder\\算法入门题单\\搜索与搜索剪枝\\Jelly.cpp","group":"local","local":true}

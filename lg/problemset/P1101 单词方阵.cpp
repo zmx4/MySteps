@@ -19,11 +19,16 @@ int dfs(int x,int y,int cnt)
 			ma[x][y] = 1;
 			return 1;
 		}
-		if(dfs(x+1,y,cnt+1))
+		if (dfs(x + 1, y, cnt + 1) || dfs(x - 1, y, cnt + 1) || dfs(x, y + 1, cnt + 1) || dfs(x, y - 1, cnt + 1) || dfs(x - 1, y - 1, cnt + 1) || dfs(x + 1, y - 1, cnt + 1) || dfs(x - 1, y + 1, cnt + 1) || dfs(x + 1, y + 1, cnt + 1))
 		{
-			
+			ma[x][y] == 1;
+			return 1;
 		}
+		else
+			return 0;
 	}
+	else
+		return 0;
 }
 signed main()
 {
@@ -38,7 +43,10 @@ signed main()
 			cin >> grid[i][j];
 		}
 	}
-	//dfs(1, 1);
+	for (int i = 1; i <= n;i++)
+		for (int j = 1; j <= n;j++)
+			dfs(i, j, 1);
+	
 
-	return 0;
+			return 0;
 }
