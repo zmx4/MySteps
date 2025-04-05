@@ -1,0 +1,1 @@
+{"name":"Local: P2240 【深基12","url":"d:\\Dev\\MySteps\\lg\\problemset\\P2240 【深基12.例1】部分背包问题.cc","tests":[{"id":1743840440211,"input":"4 50\n10 60\n20 100\n30 120\n15 45\n","output":"240.00"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\lg\\problemset\\P2240 【深基12.例1】部分背包问题.cc","group":"local","local":true}
