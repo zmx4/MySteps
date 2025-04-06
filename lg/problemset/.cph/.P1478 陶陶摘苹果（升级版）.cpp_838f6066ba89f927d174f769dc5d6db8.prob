@@ -1,0 +1,1 @@
+{"name":"Local: P1478 陶陶摘苹果（升级版）","url":"d:\\Dev\\MySteps\\lg\\problemset\\P1478 陶陶摘苹果（升级版）.cpp","tests":[{"id":1743937675244,"input":"8 15\n20 130\n120 3\n150 2\n110 7\n180 1\n50 8\n200 0\n140 3\n120 2","output":"4\r\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\lg\\problemset\\P1478 陶陶摘苹果（升级版）.cpp","group":"local","local":true}
