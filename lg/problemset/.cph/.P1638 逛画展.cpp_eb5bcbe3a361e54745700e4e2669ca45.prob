@@ -1,0 +1,1 @@
+{"name":"Local: P1638 逛画展","url":"d:\\Dev\\MySteps\\lg\\problemset\\P1638 逛画展.cpp","tests":[{"id":1743941738744,"input":"12 5\n2 5 3 1 3 2 4 1 1 5 4 3\n","output":"2 7"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\lg\\problemset\\P1638 逛画展.cpp","group":"local","local":true}
