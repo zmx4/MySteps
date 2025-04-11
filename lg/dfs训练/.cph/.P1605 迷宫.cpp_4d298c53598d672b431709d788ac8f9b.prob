@@ -1,0 +1,1 @@
+{"name":"Local: P1605 迷宫","url":"d:\\Dev\\MySteps\\lg\\dfs训练\\P1605 迷宫.cpp","tests":[{"id":1744269114785,"input":"2 2 1\n1 1 2 2\n1 2\n","output":"1\r\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\lg\\dfs训练\\P1605 迷宫.cpp","group":"local","local":true}

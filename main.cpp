@@ -10,7 +10,7 @@ signed main()
 
 	string n;
 	cin >> n;
-	reverse(n.begin(), n.end());
+	//reverse(n.begin(), n.end());
 	for(auto c:n)
 		cout << c << endl;
 	
