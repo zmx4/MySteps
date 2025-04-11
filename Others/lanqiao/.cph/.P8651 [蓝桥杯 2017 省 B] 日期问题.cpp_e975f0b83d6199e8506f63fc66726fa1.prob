@@ -1,0 +1,1 @@
+{"name":"Local: P8651 [蓝桥杯 2017 省 B] 日期问题","url":"d:\\Dev\\MySteps\\Others\\lanqiao\\P8651 [蓝桥杯 2017 省 B] 日期问题.cpp","tests":[{"id":1744354574987,"input":"02/03/04","output":"2002-03-04  \n2004-02-03  \n2004-03-02  "}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\Others\\lanqiao\\P8651 [蓝桥杯 2017 省 B] 日期问题.cpp","group":"local","local":true}
