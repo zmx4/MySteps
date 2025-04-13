@@ -13,5 +13,8 @@
     },
     "lg/problemset/P1216 [IOI 1994] 数字三角形 Number Triangles.cpp": {
         "description": "dp"
+    },
+    "Others/pratice": {
+        "description": "练习"
     }
 }
