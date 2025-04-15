@@ -22,20 +22,16 @@ int main()
 	return 0;
 }
 /* 你的代码将被嵌在这里 */
-void PrintNode(BiTree T,int n)
+
+void PrintNode(BiTree T, int n)
 {
-	if(!T)
+	if(!T || n < 1)
 		return;
-	int hh = 0,tt = 0;
-	BiTree q[1000];	
-	q[tt++] = T;
-	int cnt = 0;
-	while(hh < tt)
+	if(n == 1)
 	{
-		BiTree p = q[hh++];
-		cnt++;
-		if(cnt == n)printf("%c", p->data);
-		if(p->lchild)q[tt++] = p->lchild;
-		if(p->rchild)q[tt++] = p->rchild;
-	}	
+		printf("%c", T->data);
+		return;
+	}
+	PrintNode(T->lchild, n - 1);
+	PrintNode(T->rchild, n - 1);
 }
