@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <mdspan>
 #define endl "\n"
 #define ll long long
 using namespace std;
@@ -13,6 +14,6 @@ signed main()
 	//reverse(n.begin(), n.end());
 	for(auto c:n)
 		cout << c << endl;
-	
+	//mdspan<char, std::array<std::size_t, 2>> m(n.data(), n.size(), 1);
 	return 0;
 }                
