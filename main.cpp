@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-#include <mdspan>
 #define endl "\n"
 #define ll long long
 using namespace std;
