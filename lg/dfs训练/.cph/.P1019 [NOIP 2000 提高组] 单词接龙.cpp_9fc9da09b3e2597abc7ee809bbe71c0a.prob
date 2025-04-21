@@ -1,0 +1,1 @@
+{"name":"Local: P1019 [NOIP 2000 提高组] 单词接龙","url":"d:\\Dev\\MySteps\\lg\\dfs训练\\P1019 [NOIP 2000 提高组] 单词接龙.cpp","tests":[{"id":1745150335622,"input":"5\nat\ntouch\ncheat\nchoose\ntact\na\n","output":"23"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\lg\\dfs训练\\P1019 [NOIP 2000 提高组] 单词接龙.cpp","group":"local","local":true}

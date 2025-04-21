@@ -24,3 +24,4 @@ build/.cmake/api/v1/*
 .fleet/*
 */.idea/*
 */.vscode/*
+*.pdb

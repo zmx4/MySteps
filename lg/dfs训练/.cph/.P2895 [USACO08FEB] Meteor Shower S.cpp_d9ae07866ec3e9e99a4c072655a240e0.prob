@@ -1,0 +1,1 @@
+{"name":"Local: P2895 [USACO08FEB] Meteor Shower S","url":"d:\\Dev\\MySteps\\lg\\dfs训练\\P2895 [USACO08FEB] Meteor Shower S.cpp","tests":[{"id":1745148226611,"input":"4\n0 0 2\n2 1 2\n1 1 2\n0 3 5\n","output":"5\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\lg\\dfs训练\\P2895 [USACO08FEB] Meteor Shower S.cpp","group":"local","local":true}
