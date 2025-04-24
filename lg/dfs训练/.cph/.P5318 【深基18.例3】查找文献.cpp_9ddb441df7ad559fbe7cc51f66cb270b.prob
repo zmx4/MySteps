@@ -1,0 +1,1 @@
+{"name":"Local: P5318 【深基18","url":"d:\\Dev\\MySteps\\lg\\dfs训练\\P5318 【深基18.例3】查找文献.cpp","tests":[{"id":1745482658946,"input":"8 9\n1 2\n1 3\n1 4\n2 5\n2 6\n3 7\n4 7\n4 8\n7 8","output":"1 2 5 6 3 7 8 4 \n1 2 3 4 5 6 7 8 "}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\lg\\dfs训练\\P5318 【深基18.例3】查找文献.cpp","group":"local","local":true}
