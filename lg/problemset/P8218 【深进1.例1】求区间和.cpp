@@ -8,7 +8,7 @@ const int inf = 0x3f3f3f3f;
 signed main()
 {
 	ios::sync_with_stdio(false);
-	cin.tie(nullptr),cout.tie(nullptr);
+	cin.tie(nullptr), cout.tie(nullptr);
 
 	int n;
 	cin >> n;
@@ -20,7 +20,7 @@ signed main()
 	}
 	int m;
 	cin >> m;
-	while(m--)
+	while (m--)
 	{
 		int l, r;
 		cin >> l >> r;

@@ -1,0 +1,1 @@
+{"name":"Local: UVA11572 唯一的雪花 Unique Snowflakes","url":"d:\\Dev\\MySteps\\lg\\problemset\\UVA11572 唯一的雪花 Unique Snowflakes.cpp","tests":[{"id":1745565790363,"input":"1\n5\n1\n2\n3\n2\n1","output":"3\r\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\lg\\problemset\\UVA11572 唯一的雪花 Unique Snowflakes.cpp","group":"local","local":true}
