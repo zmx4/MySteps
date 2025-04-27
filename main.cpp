@@ -1,4 +1,4 @@
-#include <iostream>
+import std;
 #define endl "\n"
 #define ll long long
 using namespace std;

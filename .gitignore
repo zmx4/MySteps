@@ -25,3 +25,4 @@ build/.cmake/api/v1/*
 */.idea/*
 */.vscode/*
 *.pdb
+/gcm.cache

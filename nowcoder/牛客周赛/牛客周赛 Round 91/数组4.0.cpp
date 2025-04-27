@@ -45,6 +45,7 @@ void solve()
 	if (cnt > 0)
 		cnt--;
 	cout << cnt << endl;
+	//cout << flush;
 }
 
 signed main()
