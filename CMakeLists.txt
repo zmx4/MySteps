@@ -3,6 +3,15 @@ cmake_minimum_required(VERSION 3.10)
 
 project(MySteps)
 
+set(CMAKE_EXPERIMENTAL_CXX_IMPORT_STD
+  # This specific value changes as experimental support evolves. See
+  # `Help/dev/experimental.rst` in the CMake source corresponding to
+  # your CMake build for the exact value to use.
+  "0e5b6991-d74f-4b3d-a41c-cf096e0b2508")
+
+project(import_std LANGUAGES CXX)
+
+set(CMAKE_CXX_MODULE_STD 1)
 
 set(CMAKE_C_STANDARD 23)
 set(CMAKE_C_STANDARD_REQUIRED ON)
