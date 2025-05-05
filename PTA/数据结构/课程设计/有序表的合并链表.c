@@ -13,7 +13,7 @@ typedef PtrToNode List;
 
 List createList(int n)
 {
-	List L = (List)malloc(sizeof(struct Node)); // dummy head node
+	List L = (List)malloc(sizeof(struct Node));
 	L->Next = NULL;
 	List tail = L;
 	for (int i = 0; i < n; i++)
@@ -28,7 +28,7 @@ List createList(int n)
 }
 List merge(List a, List b)
 {
-	List dummy = (List)malloc(sizeof(struct Node)); // dummy head node
+	List dummy = (List)malloc(sizeof(struct Node));
 	dummy->Next = NULL;
 	List tail = dummy;
 	List pa = a->Next, pb = b->Next;

@@ -1,5 +1,9 @@
 #include <bits/stdc++.h>
+#define endl "\n"
+using ll = long long;
+using ull = unsigned long long;
 using namespace std;
+const int inf = 0x3f3f3f3f;
 
 signed main()
 {
@@ -23,6 +27,14 @@ signed main()
 		for (int j = 0; j < (int)ds.size(); j++)
 		{
 			freq[ds[j]]++;
+			/*
+			121345
+			122345
+			211345
+			122345
+			132254
+			123345
+			*/
 			while (freq[ds[j]] > 1)
 			{
 				freq[ds[i]]--;
