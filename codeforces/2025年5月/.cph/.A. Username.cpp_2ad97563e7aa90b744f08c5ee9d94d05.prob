@@ -1,0 +1,1 @@
+{"name":"Local: A","url":"d:\\Dev\\MySteps\\codeforces\\2025年5月\\A. Username.cpp","tests":[{"id":1746533534260,"input":"4\nuser0125\na1\nkotlin990000\n1code0forces101\n","output":"user0125\na\nkotlin990000\n1code0forces101\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\codeforces\\2025年5月\\A. Username.cpp","group":"local","local":true}
