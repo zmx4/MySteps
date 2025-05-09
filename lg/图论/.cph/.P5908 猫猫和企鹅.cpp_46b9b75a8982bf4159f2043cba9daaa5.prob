@@ -1,0 +1,1 @@
+{"name":"Local: P5908 猫猫和企鹅","url":"d:\\Dev\\MySteps\\lg\\图论\\P5908 猫猫和企鹅.cpp","tests":[{"id":1746791254429,"input":"5 1\n1 2\n1 3\n2 4\n3 5","output":"2\r\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\lg\\图论\\P5908 猫猫和企鹅.cpp","group":"local","local":true}
