@@ -7,7 +7,8 @@ const int inf = 0x3f3f3f3f;
 
 signed main()
 {
-
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr), cout.tie(nullptr);
 	int n;
 	while(cin>>n)
 	{
