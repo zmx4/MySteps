@@ -31,25 +31,26 @@ signed main()
 		}
 	}
 
-	queue<pair<int, int>> q;
+	deque<pair<int, int>> q;
 	for(auto [x, y] : p)
 	{
 		dis[x][y] = 0;
-		q.push({x, y});
+		q.push_front({x, y});
 	}
 	while (!q.empty())
 	{
 		auto [x, y] = q.front();
-		q.pop();
+		q.pop_front();
 		for (int i = 0; i < 4; i++)
 		{
 			int nx = x + dx[i], ny = y + dy[i];
 			if (nx < 1 || nx > h || ny < 1 || ny > w)continue;
 			if (g[nx][ny] == '#')continue;
-			if(dis[nx][ny] > dis[x][y] + 1)
+			if(dis[nx][ny]>1e6)
 			{
 				dis[nx][ny] = dis[x][y] + 1;
-				q.push({nx, ny});
+				if(a[nx][ny]==1) q.push_back({nx, ny});
+				else q.push_front({nx, ny});
 				ans[nx][ny] = sign[i];
 			}
 		}
