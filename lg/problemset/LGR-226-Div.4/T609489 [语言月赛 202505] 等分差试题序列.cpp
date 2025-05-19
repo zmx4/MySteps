@@ -54,28 +54,51 @@ void _dbg(T *arr, N n, Args &&...rest)
 		cerr << ", ";
 	_dbg(rest...);
 }
-void solve()
-{
-	
-	
-	
-	
-	
-	
-}
-
 signed main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(nullptr),cout.tie(nullptr);
-	char readBuffer[1 << 20];
-	cin.rdbuf()->pubsetbuf(readBuffer, sizeof(readBuffer));
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr),cout.tie(nullptr);
 
-	int T = 1;	cin>>T;
-	while(T--)
-	{
-		solve();
-	}
-	
-	return 0;
+    int n;
+    cin >> n;
+    vector<int> a(n+1);
+    for(int i = 1; i <= n; i++)
+    {
+        cin >> a[i];
+    }
+    if(n <= 2)
+    {
+        cout << n << endl;
+        return 0;
+    }
+    vector<int> f(n+1,0);
+    for(int i = 1; i <= n; i++)
+    {
+        f[i]=a[i]-a[i-1];
+    }
+    //dbg(f);
+    int ans = 2;
+    int cnt = 2;
+    int d = f[2];
+    bool flag = false;
+    for (int i = 3; i <= n; i++)
+    {
+        if(f[i] == d)
+        {
+            cnt++;
+        }
+        else
+        {
+            d = f[i];
+            cnt = 2;
+        }
+        ans = max(ans, cnt);
+    }
+    ans = max(ans,cnt);
+    cout << ans << endl;
+
+
+
+
+    return 0;
 }

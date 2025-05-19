@@ -56,12 +56,16 @@ void _dbg(T *arr, N n, Args &&...rest)
 }
 void solve()
 {
-	
-	
-	
-	
-	
-	
+	int a,b,c,d;
+    cin>>a>>b>>c>>d;
+    auto check=[&](){
+        int s = a * 60 + b;
+        int e = c * 60 + d;
+        return s > e;
+    };
+    if(check())
+    cout<<"Yes"<<endl;
+    else cout<<"No"<<endl;
 }
 
 signed main()
@@ -71,7 +75,7 @@ signed main()
 	char readBuffer[1 << 20];
 	cin.rdbuf()->pubsetbuf(readBuffer, sizeof(readBuffer));
 
-	int T = 1;	cin>>T;
+	int T = 1;	//cin>>T;
 	while(T--)
 	{
 		solve();

@@ -56,11 +56,40 @@ void _dbg(T *arr, N n, Args &&...rest)
 }
 void solve()
 {
-	
-	
-	
-	
-	
+	int n,k;
+    cin>>n>>k;
+    vector<int> a(n);
+    for(int i = 0; i < n; i++)
+    {
+        cin>>a[i];
+    }
+	ranges::sort(a);
+    int cnt = 0;
+    for(int i = n - 1;i >= 0;i--)
+	{
+        if(a[i]==a[n-1])cnt++;
+        else break;
+    }
+	if(cnt == 1 && a[n-1]-a[0]-1>k)
+    {
+        cout<<"Jerry"<<endl;
+    }
+    else if(cnt!=1&&a[n-1]-a[0] > k)
+    {
+        cout<<"Jerry"<<endl;
+    }
+    else
+    {
+        ll sum = accumulate(a.begin(),a.end(),0);
+        if((sum & 1)) 
+        {
+            cout<<"Tom"<<endl;
+        }
+        else
+        {
+            cout<<"Jerry"<<endl;
+        }
+    }
 	
 }
 

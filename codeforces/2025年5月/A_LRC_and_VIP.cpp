@@ -56,8 +56,37 @@ void _dbg(T *arr, N n, Args &&...rest)
 }
 void solve()
 {
-	
-	
+	int n;
+    cin>>n;
+    vector<int> a(n);
+    for(int i = 0; i < n; i++)
+    {
+        cin>>a[i];
+    }
+    int maxx = *max_element(a.begin(), a.end());
+    int minn = *min_element(a.begin(), a.end());
+    if(maxx == minn)
+    {
+        cout<<"NO"<<endl;
+        return;
+    }
+    else
+    {
+        cout<<"YES"<<endl;
+        for(int i = 0;i < n;i++)
+        {
+            if(a[i]==maxx)
+            {
+                cout<<1<<" ";
+            }
+            else
+            {
+                cout<<2<<" ";
+            }
+        }
+    }
+	cout<<endl;
+    return;
 	
 	
 	
