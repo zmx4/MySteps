@@ -1,27 +1,29 @@
-#include <iostream>
+#include <bits/stdc++.h>
 #define endl "\n"
-#define ll long long
+using ll = long long;
+using ull = unsigned long long;
+using LL = long long;
 using namespace std;
-const ll N = 1000000;
-int a[] = {1, 7, 49, 343, 2401, 16807, 117649, 823543};
+const int inf = 0x3f3f3f3f;
+const int N = 1e5 + 10;
+
 signed main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(nullptr),cout.tie(nullptr);
-	ll sum = 0;
-	int i = 1;
-	for (i = 1; sum <= N; i++)
-	{
-		for (int j = 1; j <= 5;j++)
-		{
-			sum += i;
-			if(sum>=N)
-				break;
-		}
-		if (sum >= N)
-			break;
-		i *= 7;
-	}
-	cout << i << " " << sum << endl;
-	return 0;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr), cout.tie(nullptr);
+
+    int n;
+    cin >> n;
+    vector<int> a(n + 1, 0);
+    for (int i = 1; i <= n; i++)
+        cin >> a[i];
+    int valand = a[1], valor = a[1];
+    for (int i = 2; i <= n; i++)
+    {
+        valand &= a[i];
+        valor |= a[i];
+    }
+    int sum = accumulate(a.begin(), a.end(), 0);
+    cout << valor  << endl;
+    return 0;
 }
