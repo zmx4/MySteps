@@ -62,6 +62,7 @@ signed main()
     #if ONLINE_JUDGE
     char readBuffer[1 << 20];
     cin.rdbuf()->pubsetbuf(readBuffer, sizeof(readBuffer));
+    cout.rdbuf()->pubsetbuf(readBuffer, sizeof(readBuffer));
     #endif
     int T = 1;
     // cin >> T;
