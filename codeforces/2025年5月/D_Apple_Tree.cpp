@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 #define endl "\n"
+#define int long long
 using ll = long long;
 using ull = unsigned long long;
 using LL = long long;
