@@ -1,0 +1,90 @@
+#include <bits/stdc++.h>
+#define endl "\n"
+#define fi first
+#define se second
+#define pb push_back
+#define gcd __gcd
+typedef int64_t i64;
+typedef int32_t i32;
+using ll = long long;using ull = unsigned long long;using LL = long long;using ULL = unsigned long long;
+using namespace std;
+const int inf = 0x3f3f3f3f,INF = 0x3f3f3f3f;
+#define int long long
+template <typename T>
+ostream &operator<<(ostream &os, const vector<T> &v){os << "[";for (auto it = v.begin(); it != v.end(); ++it){if (it != v.begin())os << ", ";os << *it;}return os << "]";}
+template <typename T1, typename T2>
+ostream &operator<<(ostream &os, const pair<T1, T2> &p) { return os << "(" << p.first << ", " << p.second << ")"; }
+#define dbg(...) cerr << "[" << __LINE__ << "] " << #__VA_ARGS__ << " = ", _dbg(__VA_ARGS__), cerr << endl
+void _dbg() {}
+template <typename T, typename... Args>
+void _dbg(T &&arg, Args &&...args){cerr << arg;if (sizeof...(args) > 0)cerr << ", ";_dbg(args...);}
+template <typename T, typename N, typename... Args>
+void _dbg(T *arr, N n, Args &&...rest){cerr << "[";for (N i = 0; i < n; ++i){if (i != 0)cerr << ", ";cerr << arr[i];}cerr << "]";if (sizeof...(rest) > 0)cerr << ", ";_dbg(rest...);}
+const int N = 1e5 + 10, M = 1e5 + 10;
+const int mod = 80112002;
+vector<vector<int>> g;
+vector<int> in, out;
+int ans[N];
+inline void solve()
+{
+    int n, m;
+    cin >> n >> m;
+    fill(ans + 1, ans + n + 1, 0);
+    in.assign(n+1, 0);
+    out.assign(n+1, 0);
+    g.assign(n+1, vector<int>());
+    for(int i = 0; i < m; ++i)
+    {
+        int u, v;
+        cin >> u >> v;
+        g[u].pb(v);
+        in[v]++;
+        out[u]++;
+    }
+	queue<int> q;
+    for(int i = 1; i <= n; ++i)
+    {
+        if(in[i] == 0)
+        {
+            q.push(i);
+            ans[i] = 1;
+        }
+    }
+    while(!q.empty())
+    {
+        int u = q.front();
+        q.pop();
+        for(auto v : g[u])
+        {
+            in[v]--;
+            ans[v] = (ans[v] + ans[u]) % mod;
+            if(in[v] == 0)
+            {
+                q.push(v);
+            }
+        }
+    }
+    ll res = 0;
+    for(int i = 1; i <= n; ++i)
+    {
+        if (out[i] == 0)
+            res = (res + ans[i]) % mod;
+    }
+    cout << res << endl;
+}
+
+signed main()
+{
+    cin.tie(nullptr)->ios::sync_with_stdio(false);cout.tie(nullptr);
+#if ONLINE_JUDGE
+	char readBuffer[1 << 20];
+	cin.rdbuf()->pubsetbuf(readBuffer, sizeof(readBuffer));
+#endif
+	int T = 1;	//cin>>T;
+	while(T--)
+	{
+		solve();
+	}
+	
+	return 0;
+}
