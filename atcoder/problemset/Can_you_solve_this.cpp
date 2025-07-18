@@ -24,12 +24,26 @@ void _dbg(T *arr, N n, Args &&...rest){cerr << "[";for (N i = 0; i < n; ++i){if 
 const int N = 1e5 + 10, M = 1e5 + 10;
 inline void solve()
 {
-	
-	
-	
-	
-	
-	
+    int m, n, c;
+    cin >> m >> n >> c;
+    vector<int> a(n), b(n);
+    int cnt = 0;
+    for(auto &x : b) cin >> x;
+    while(m--)
+    {
+        for(auto &x : a) cin >> x;
+        int sum = 0;
+        for(int i = 0; i < n; i++)
+        {
+            sum+= a[i] * b[i];
+        }
+        sum+= c;
+        if(sum> 0)
+        {
+            cnt++;
+        }
+    }
+    cout << cnt << endl;
 }
 
 signed main()
@@ -39,7 +53,7 @@ signed main()
 	char readBuffer[1 << 20];
 	cin.rdbuf()->pubsetbuf(readBuffer, sizeof(readBuffer));
 #endif
-	int T = 1;	cin>>T;
+	int T = 1;	//cin>>T;
 	while(T--)
 	{
 		solve();

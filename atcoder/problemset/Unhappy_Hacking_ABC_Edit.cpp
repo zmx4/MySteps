@@ -9,7 +9,6 @@ typedef int32_t i32;
 using ll = long long;using ull = unsigned long long;using LL = long long;using ULL = unsigned long long;
 using namespace std;
 const int inf = 0x3f3f3f3f,INF = 0x3f3f3f3f;
-//ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
 #define int long long
 template <typename T>
 ostream &operator<<(ostream &os, const vector<T> &v){os << "[";for (auto it = v.begin(); it != v.end(); ++it){if (it != v.begin())os << ", ";os << *it;}return os << "]";}
@@ -24,12 +23,25 @@ void _dbg(T *arr, N n, Args &&...rest){cerr << "[";for (N i = 0; i < n; ++i){if 
 const int N = 1e5 + 10, M = 1e5 + 10;
 inline void solve()
 {
-	
-	
-	
-	
-	
-	
+	string s;
+    cin >> s;
+    deque<char> dq;
+    for (int i = 0; i < s.size(); i++)
+    {
+        if(s[i]=='1')
+            dq.pb('1');
+        else if(s[i]=='0')
+            dq.pb('0');
+        else 
+        {
+            if(!dq.empty())
+                dq.pop_back();
+        }
+    }
+    for(auto &c : dq)
+    {
+        cout << c;
+    }
 }
 
 signed main()
@@ -39,7 +51,7 @@ signed main()
 	char readBuffer[1 << 20];
 	cin.rdbuf()->pubsetbuf(readBuffer, sizeof(readBuffer));
 #endif
-	int T = 1;	cin>>T;
+	int T = 1;	//cin>>T;
 	while(T--)
 	{
 		solve();
