@@ -25,9 +25,23 @@ void _dbg(T *arr, N n, Args &&...rest){cerr << "[";for (N i = 0; i < n; ++i){if 
 const int N = 1e5 + 10, M = 1e5 + 10;
 inline void solve()
 {
-	
-	
-	
+	int n;
+    cin>>n;
+    vector<int> a(n);
+	for(int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+    }
+    sort(a.begin(), a.end());
+    int cnt = 0;
+    int ans = INT_MAX;
+    for(int i = 0; i < n; i++)
+    {
+        int it = lower_bound(a.begin(), a.end(), a[i+1] + a[i]) - a.begin();
+        int tmp = n - it + i;
+        ans = min(ans, tmp);
+    }
+    cout << ans << endl;
 	
 	
 	
