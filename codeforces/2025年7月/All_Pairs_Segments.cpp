@@ -62,43 +62,28 @@ void _dbg(T *arr, N n, Args &&...rest)
 const int N = 1e5 + 10, M = 1e5 + 10;
 inline void solve()
 {
-    int n, k;
-    cin >> n >> k;
-    vector<int> a(n);
-    for (auto &x : a)
-        cin >> x;
-    set<int> S(a.begin(), a.end());
-    vector<int> b;
-    for (int x : S)
-        b.push_back(x);
-    int h = a[k - 1];
-    sort(b.begin(), b.end());
-    int i = 0;
-    int now = 0;
-    while (b[i] < h)
-        i++;
-    while (i < b.size() - 1)
+    int n, q;
+    cin >> n >> q;
+    vector<int> a(n + 1);
+    for (int i = 1; i <= n; i++)
+        cin >> a[i];
+    map<int, int> mp;
+    for (int i = 1; i <= n - 1; i++)
     {
-        if (b[i] - now >= b[i + 1] - b[i])
-        {
-            // cout << b[i] - now << " " << b[i + 1] - b[i] << endl;
-            // cout << b[i] << endl;
-            // cout << b[i] << endl;
-            // dbg(b[i] - now, b[i + 1] - b[i]);
-            // dbg(now);
-            // cerr << format("{} {} {}", now, b[i] , b[i + 1] - b[i]) << endl;
-            now += b[i + 1] - b[i];
-            i++;
-            // cerr << now << endl;
-        }
-        else
-        {
-            cout << "NO" << endl;
-            return;
-        }
+        mp[i * (n - i)] += a[i + 1] - a[i] - 1;
     }
-    // cerr << "i" << endl;
-    cout << "YES" << endl;
+    // 统计每个 xi 处的点
+    for (int i = 1; i <= n; i++)
+    {
+        mp[i * (n - i + 1) - 1] += 1;
+    }
+    while(q--)
+    {
+        int x;
+        cin >> x;
+        cout<<mp[x] << ' ';
+    }
+    cout << endl;
 }
 
 signed main()
