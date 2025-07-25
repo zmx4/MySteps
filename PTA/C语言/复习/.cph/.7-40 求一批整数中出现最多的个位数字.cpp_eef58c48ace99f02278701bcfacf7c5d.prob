@@ -1,1 +1,0 @@
-{"name":"Local: 7-40 求一批整数中出现最多的个位数字","url":"d:\\Dev\\CPP\\MySteps\\PTA\\复习\\7-40 求一批整数中出现最多的个位数字.cpp","tests":[{"id":1733483209369,"input":"3\n1234 2345 3456","output":"3: 3 4"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\CPP\\MySteps\\PTA\\复习\\7-40 求一批整数中出现最多的个位数字.cpp","group":"local","local":true}

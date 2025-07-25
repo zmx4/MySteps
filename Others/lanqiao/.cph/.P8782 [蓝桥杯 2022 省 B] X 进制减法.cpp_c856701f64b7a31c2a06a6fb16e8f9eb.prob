@@ -1,1 +1,0 @@
-{"name":"Local: P8782 [蓝桥杯 2022 省 B] X 进制减法","url":"d:\\Dev\\MySteps\\Others\\lanqiao\\P8782 [蓝桥杯 2022 省 B] X 进制减法.cpp","tests":[{"id":1744286086698,"input":"11\n3\n10 4 0\n3\n1 2 0","output":"94\r\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\Others\\lanqiao\\P8782 [蓝桥杯 2022 省 B] X 进制减法.cpp","group":"local","local":true}

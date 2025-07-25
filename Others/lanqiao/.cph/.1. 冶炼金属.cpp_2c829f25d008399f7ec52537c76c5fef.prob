@@ -1,1 +1,0 @@
-{"name":"Local: 1","url":"d:\\Dev\\MySteps\\Others\\lanqiao\\1. 冶炼金属.cpp","tests":[{"id":1744287058373,"input":"3\n75 3\n53 2\n59 2","output":"20 25\r\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\Others\\lanqiao\\1. 冶炼金属.cpp","group":"local","local":true}

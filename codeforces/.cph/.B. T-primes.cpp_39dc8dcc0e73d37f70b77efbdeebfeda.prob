@@ -1,1 +1,0 @@
-{"name":"Local: B","url":"d:\\Dev\\CPP\\MySteps\\codeforces\\B. T-primes.cpp","tests":[{"id":1733915741319,"input":"3\n4 5 6\n","output":"YES\nNO\nNO\n"},{"id":1733916075550,"input":"1\n36","output":"NO"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\CPP\\MySteps\\codeforces\\B. T-primes.cpp","group":"local","local":true}

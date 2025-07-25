@@ -1,1 +1,0 @@
-{"name":"Local: A","url":"d:\\Dev\\MySteps\\codeforces\\2025年4月\\A. Kamilka and the Sheep.cpp","tests":[{"id":1744022203999,"input":"4\n2\n1 3\n5\n5 4 3 2 1\n3\n5 6 7\n3\n1 11 10\n","output":"2\r\n4\r\n2\r\n10\r\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\codeforces\\2025年4月\\A. Kamilka and the Sheep.cpp","group":"local","local":true}

@@ -1,1 +1,0 @@
-{"name":"Local: 844","url":"d:\\Dev\\CPP\\MySteps\\acwing\\DFSBFS\\844. 走迷宫.cpp","tests":[{"id":1733398960621,"input":"5 5\n0 1 0 0 0\n0 1 0 1 0\n0 0 0 0 0\n0 1 1 1 0\n0 0 0 1 0","output":"8"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\CPP\\MySteps\\acwing\\DFSBFS\\844. 走迷宫.cpp","group":"local","local":true}

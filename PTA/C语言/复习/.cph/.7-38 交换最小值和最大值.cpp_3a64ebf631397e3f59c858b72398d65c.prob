@@ -1,1 +1,0 @@
-{"name":"Local: 7-38 交换最小值和最大值","url":"d:\\Dev\\CPP\\MySteps\\PTA\\复习\\7-38 交换最小值和最大值.cpp","tests":[{"id":1733400377076,"input":"5\n8 2 5 1 4","output":"1 2 5 4 8"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\CPP\\MySteps\\PTA\\复习\\7-38 交换最小值和最大值.cpp","group":"local","local":true}

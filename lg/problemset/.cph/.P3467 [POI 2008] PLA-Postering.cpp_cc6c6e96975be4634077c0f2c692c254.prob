@@ -1,1 +1,0 @@
-{"name":"Local: P3467 [POI 2008] PLA-Postering","url":"d:\\Dev\\MySteps\\lg\\problemset\\P3467 [POI 2008] PLA-Postering.cpp","tests":[{"id":1745564680842,"input":"5\n1 2\n1 3\n2 2\n2 5\n1 4","output":"4\r\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\lg\\problemset\\P3467 [POI 2008] PLA-Postering.cpp","group":"local","local":true}

@@ -1,1 +1,0 @@
-{"name":"Local: trie","url":"d:\\Dev\\MySteps\\acwing\\数据结构datestruct\\trie.cpp","tests":[{"id":1744523428975,"input":"5\nI abc\nQ abc\nQ ab\nI ab\nQ ab","output":"1\r\n0\r\n1\r\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\acwing\\数据结构datestruct\\trie.cpp","group":"local","local":true}

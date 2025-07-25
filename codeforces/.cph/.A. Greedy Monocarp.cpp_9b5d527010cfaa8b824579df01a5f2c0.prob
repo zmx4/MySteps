@@ -1,1 +1,0 @@
-{"name":"Local: A","url":"d:\\Dev\\CPP\\MySteps\\codeforces\\A. Greedy Monocarp.cpp","tests":[{"id":1734609510388,"input":"4\n5 4\n4 1 2 3 2\n5 10\n4 1 2 3 2\n2 10\n1 1\n3 8\n3 3 3\n","output":"0\n1\n8\n2\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\CPP\\MySteps\\codeforces\\A. Greedy Monocarp.cpp","group":"local","local":true}

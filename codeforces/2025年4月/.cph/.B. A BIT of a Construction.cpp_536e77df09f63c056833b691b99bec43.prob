@@ -1,1 +1,0 @@
-{"name":"Local: B","url":"d:\\Dev\\MySteps\\codeforces\\2025年4月\\B. A BIT of a Construction.cpp","tests":[{"id":1745462440429,"input":"4\n1 5\n2 3\n2 5\n6 51\n","output":"5 \r\n1 2 \r\n3 2 \r\n31 20 0 0 0 0 \r\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\codeforces\\2025年4月\\B. A BIT of a Construction.cpp","group":"local","local":true}

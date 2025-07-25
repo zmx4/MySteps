@@ -1,1 +1,0 @@
-{"name":"Local: P4995 跳跳！","url":"d:\\Dev\\MySteps\\lg\\problemset\\P4995 跳跳！.cpp","tests":[{"id":1743939891853,"input":"2\n2 1","output":"5\r\n"},{"id":1743939897277,"input":"3\n6 3 5\n","output":"49\r\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\lg\\problemset\\P4995 跳跳！.cpp","group":"local","local":true}

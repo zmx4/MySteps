@@ -1,1 +1,0 @@
-{"name":"Local: P1115 最大子段和","url":"d:\\Dev\\MySteps\\lg\\problemset\\P1115 最大子段和.cpp","tests":[{"id":1741349097222,"input":"7\n2 -4 3 -1 2 -4 3\n","output":"4"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\lg\\problemset\\P1115 最大子段和.cpp","group":"local","local":true}

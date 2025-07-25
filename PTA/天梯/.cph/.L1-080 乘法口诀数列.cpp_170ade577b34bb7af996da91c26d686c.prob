@@ -1,1 +1,0 @@
-{"name":"Local: L1-080 乘法口诀数列","url":"d:\\Dev\\MySteps\\PTA\\天梯\\L1-080 乘法口诀数列.cpp","tests":[{"id":1742629496749,"input":"2 3 10","output":"2 3 6 1 8 6 8 4 8 4"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\PTA\\天梯\\L1-080 乘法口诀数列.cpp","group":"local","local":true}

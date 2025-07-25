@@ -1,1 +1,0 @@
-{"name":"Local: P5736 【深基7","url":"d:\\Dev\\MySteps\\lg\\problemset\\P5736 【深基7.例2】质数筛.cpp","tests":[{"id":1742375573567,"input":"5\n3 4 5 6 7","output":"3 5 7"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\lg\\problemset\\P5736 【深基7.例2】质数筛.cpp","group":"local","local":true}

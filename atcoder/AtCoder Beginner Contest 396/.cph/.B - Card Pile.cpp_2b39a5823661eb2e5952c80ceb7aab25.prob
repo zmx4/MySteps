@@ -1,1 +1,0 @@
-{"name":"Local: B - Card Pile","url":"d:\\Dev\\MySteps\\atcoder\\problemset\\B - Card Pile.cpp","tests":[{"id":1743296791556,"input":"6\n2\n1 4\n1 3\n2\n2\n2\n","output":"0\n3\n4\n0\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\atcoder\\problemset\\B - Card Pile.cpp","group":"local","local":true}

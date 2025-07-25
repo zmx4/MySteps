@@ -1,1 +1,0 @@
-{"name":"Local: A","url":"d:\\Dev\\MySteps\\codeforces\\2025年4月\\A. Dr. TC.cpp","tests":[{"id":1745543592014,"input":"5\n3\n101\n1\n1\n5\n00000\n2\n11\n3\n010\n","output":"5\n0\n5\n2\n4\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\codeforces\\2025年4月\\A. Dr. TC.cpp","group":"local","local":true}

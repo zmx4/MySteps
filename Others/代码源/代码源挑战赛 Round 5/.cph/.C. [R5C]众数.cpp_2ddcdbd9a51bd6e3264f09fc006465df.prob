@@ -1,1 +1,0 @@
-{"name":"Local: C","url":"d:\\Dev\\MySteps\\Others\\代码源\\C. [R5C]众数.cpp","tests":[{"id":1743164256832,"input":"8\n1 2 2 4 2 4 3 3\n","output":"2\r\n"},{"id":1743164264085,"input":"8\n1 3 3 4 4 5 6 7\n","output":"2\r\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\Others\\代码源\\C. [R5C]众数.cpp","group":"local","local":true}

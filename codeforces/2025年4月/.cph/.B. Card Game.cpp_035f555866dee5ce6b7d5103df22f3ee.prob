@@ -1,1 +1,0 @@
-{"name":"Local: B","url":"d:\\Dev\\MySteps\\codeforces\\2025年4月\\B. Card Game.cpp","tests":[{"id":1745324246501,"input":"5\n3 8 2 6\n1 1 1 1\n10 10 2 2\n1 1 10 10\n3 8 7 2\n","output":"2\n0\n4\n0\n2\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\codeforces\\2025年4月\\B. Card Game.cpp","group":"local","local":true}

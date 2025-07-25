@@ -1,1 +1,0 @@
-{"name":"Local: 1-38 静静的推荐","url":"d:\\Dev\\MySteps\\PTA\\天梯\\1-38 静静的推荐.cpp","tests":[{"id":1742687773765,"input":"10 2 90\n203 0\n169 91\n175 88\n175 0\n175 90\n189 0\n189 0\n189 95\n189 89\n256 100","output":"8\r\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Dev\\MySteps\\PTA\\天梯\\1-38 静静的推荐.cpp","group":"local","local":true}
