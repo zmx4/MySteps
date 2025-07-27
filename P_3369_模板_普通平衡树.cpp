@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <bits/extc++.h>
 #define endl "\n"
 #define fi first
 #define se second
@@ -23,22 +24,44 @@ void _dbg(T &&arg, Args &&...args){cerr << arg;if (sizeof...(args) > 0)cerr << "
 template <typename T, typename N, typename... Args>
 void _dbg(T *arr, N n, Args &&...rest){cerr << "[";for (N i = 0; i < n; ++i){if (i != 0)cerr << ", ";cerr << arr[i];}cerr << "]";if (sizeof...(rest) > 0)cerr << ", ";_dbg(rest...);}
 const int N = 1e5 + 10, M = 1e5 + 10;
-double f[N];
-void init()
-{
-    f[1] = 1;
-    for (int i = 2; i <= 1e5;i++)
-    {
-        f[i] = f[i - 1] + (double)1/i ;
-    }
-}
+__gnu_pbds::tree<long long, __gnu_pbds::null_type, less<long long>, __gnu_pbds::rb_tree_tag, __gnu_pbds::tree_order_statistics_node_update> tre;
 inline void solve()
 {
     int n;
     cin >> n;
-    cout << format("{:.15f}",f[n]) << endl;
+    for (int i = 1; i <= n; i++)
+    {
+        int op, k;
+        cin >> op >> k;
+        if (op == 1)
+            tre.insert((k << 20) + i);
+        else if (op == 2)
+            tre.erase(tre.lower_bound(k << 20));
+        else if (op == 3)
+            cout << tre.order_of_key(k << 20) + 1 << endl;
+        else if (op == 4)
+            cout << ((*tre.find_by_order(k - 1)) >> 20) << endl;
+        else if (op == 5)
+            cout << ((*--tre.lower_bound(k << 20)) >> 20)<<endl;
+        else
+            cout << ((*tre.upper_bound((k << 20) + n)) >> 20) << endl;
+    }
 }
-
+/*
+rope<int>a;
+int main(){
+    cin>>n;
+    while(n--){
+        cin>>op>>x;
+        if(op==1) a.insert(lower_bound(a.begin(),a.end(),x)-a.begin(),x);
+        if(op==2) a.erase(lower_bound(a.begin(),a.end(),x)-a.begin(),1);
+        if(op==3) cout<<lower_bound(a.begin(),a.end(),x)-a.begin()+1<<endl;
+        if(op==4) cout<<a[x-1]<<endl;
+        if(op==5) cout<<a[lower_bound(a.begin(),a.end(),x)-a.begin()-1]<<endl;
+        if(op==6) cout<<a[upper_bound(a.begin(),a.end(),x)-a.begin()]<<endl;
+    }
+}
+*/
 signed main()
 {
     cin.tie(nullptr)->ios::sync_with_stdio(false);cout.tie(nullptr);
@@ -46,9 +69,8 @@ signed main()
 	char readBuffer[1 << 20];
 	cin.rdbuf()->pubsetbuf(readBuffer, sizeof(readBuffer));
 #endif
-	int T = 1;	cin>>T;
-    init();
-    while(T--)
+	int T = 1;	//cin>>T;
+	while(T--)
 	{
 		solve();
 	}
