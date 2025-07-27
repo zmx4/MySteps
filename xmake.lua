@@ -43,7 +43,7 @@ target("acwing")
 	set_languages("c23", "c++20")
 
 -- If you want to known more usage about xmake, please see https://xmake.io
---  
+--
 -- ## FAQ
 --
 -- You can enter the project directory firstly before building project.
