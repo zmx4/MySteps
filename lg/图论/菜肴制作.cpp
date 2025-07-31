@@ -37,7 +37,6 @@ inline void solve()
         int u, v;
         cin >> u >> v;
         g[v].pb(u);
-        in[u]++;
     }
     vector<int> ans;
     priority_queue<int,vector<int>,less<int>> q;
