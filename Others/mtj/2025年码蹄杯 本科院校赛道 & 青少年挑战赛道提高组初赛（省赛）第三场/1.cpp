@@ -1,27 +1,43 @@
 #include<bits/stdc++.h> 
 #define int long long
 using namespace std;
-using ll = long long;
-const int N = 5e5+10;
-const int mod = 1e9+7;
-using namespace std;
-ll a[N],b[N];
-ll persum[N],perxor[N];
+const int N = 1e6+10;
+int l[N],r[N];
 signed main( )
 {
 	int n;cin>>n;
-	for(int i = 1;i <= n;i++)cin>>a[i];
-	for(int i = 1;i <= n;i++)cin>>b[i];
-	for(int i = 1;i <= n;i++)persum[i]=persum[i-1]+a[i];
-	for(int i = 1;i <= n;i++)perxor[i]=perxor[i-1]^b[i];
-	int ans = 0;
+	vector<pair<int,int>>a(n+1);
+	int  ans  = 0;
 	for(int i = 1;i <= n;i++)
-		for(int j = i;j <= n;j++)
+	{
+		cin>>a[i].first>>a[i].second;
+	}
+	sort(a.begin()+1,a.end());
+	int zuo = 0,you = 0;
+	for(int i = 1;i <= n;i++)
+	{
+		if(a[i].first>zuo)
 		{
-			ans=ans+(persum[j]-persum[i-1])*(perxor[j]^perxor[i-1])%mod;
+			ans+=a[i].second-a[i].first+1;
+			zuo = a[i].second;
 		}
-	
+		else if(a[i].second>zuo)
+		{
+			ans+=a[i].second - zuo;
+			zuo = a[i].second;
+		}
+	}
 	cout<<ans<<endl;
-	
 	return 0;
 }
+/*
+3
+1 2
+2 3
+5 6
+
+
+
+
+
+*/

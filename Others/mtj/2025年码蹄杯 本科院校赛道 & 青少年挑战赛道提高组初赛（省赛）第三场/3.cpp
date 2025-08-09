@@ -1,43 +1,67 @@
 #include<bits/stdc++.h> 
 #define int long long
 using namespace std;
-const int N = 1e6+10;
-int l[N],r[N];
+const int N = 3e5+10;
+int g[3][N];
+bool vis[3][N];
+int dx[]={0,0,1,-1},dy[]={1,-1,0,0};
+int n;
+void bfs(int x,int y)
+{
+	int cnt = 0;
+	queue<pair<int,int>>q;
+	q.push({x,y});
+	vis[x][y]=1;
+	while(!q.empty())
+	{
+		auto [xx,yy] = q.front();
+		q.pop();
+		for(int i = 0;i < 4;i++)
+		{
+			int tx = xx+dx[i],ty = yy + dy[i];
+			if(tx>=1&&tx<=2&&ty>=1&&ty<=n&&!vis[tx][ty]&&g[tx][ty]==g[x][y])
+			{
+//				cout<<tx<<" "<<ty<<endl;
+				q.push({tx,ty});
+				vis[tx][ty]=1;
+			}
+		}
+	}
+	
+//	return cnt;
+}
 signed main( )
 {
-	int n;cin>>n;
-	vector<pair<int,int>>a(n+1);
-	int  ans  = 0;
-	for(int i = 1;i <= n;i++)
-	{
-		cin>>a[i].first>>a[i].second;
+	cin>>n;
+	for(int i = 1;i <= n;i++){
+		char x;cin>>x;
+		g[1][i]=x-'0';
+//		cout<<g[1][i]<<endl;
 	}
-	sort(a.begin()+1,a.end());
-	int zuo = 0,you = 0;
+	for(int i = 1;i <= n;i++){
+		char x;cin>>x;
+		g[2][i]=x-'0';
+//		cout<<g[2][i]<<endl;
+	}
+//	cout<<1<<endl;
+	int ans = 0;
 	for(int i = 1;i <= n;i++)
 	{
-		if(a[i].first>zuo)
+//		cout<<1<<endl;
+		if(!vis[1][i])
 		{
-			ans+=a[i].second-a[i].first+1;
-			zuo = a[i].second;
+			ans++;
+			bfs(1,i);
+//			cout<<1<<" "<<i<<endl;
 		}
-		else if(a[i].second>zuo)
+		if(!vis[2][i])
 		{
-			ans+=a[i].second - zuo;
-			zuo = a[i].second;
+			ans++;
+			bfs(2,i);
+//			cout<<2<<" "<<i<<endl;
 		}
 	}
 	cout<<ans<<endl;
+	
 	return 0;
 }
-/*
-3
-1 2
-2 3
-5 6
-
-
-
-
-
-*/
