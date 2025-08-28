@@ -26,3 +26,4 @@ build/.cmake/api/v1/*
 */.vscode/*
 *.pdb
 /gcm.cache
+/打表/.venv

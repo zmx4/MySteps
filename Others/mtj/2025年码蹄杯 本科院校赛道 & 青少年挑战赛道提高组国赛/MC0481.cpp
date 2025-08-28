@@ -29,7 +29,7 @@ inline void Tick()
 		}
 		else 
 		{
-			r = mid - 1;
+			r = mid;
 		}
 	}
 	cout<<l<<endl;
