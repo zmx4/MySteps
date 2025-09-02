@@ -47,6 +47,7 @@ int main()
     s.insert(2);
     s.insert(3);
     cout << *s.begin() << endl;
+    cout << *s.rbegin() << endl;
     solve();
     return 0;
 }

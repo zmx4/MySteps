@@ -12,7 +12,7 @@ constexpr int inf = 0x3f3f3f3f;
 constexpr long long INF = 0x3f3f3f3f3f3f3f3f;
 ll gcd(ll a, ll b){if (b == 0)return a;return gcd(b, a % b);}
 ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
-// #define int long long
+void test(){cout<<"test"<<endl;}
 template <typename T>
 ostream &operator<<(ostream &os, const vector<T> &v){os << "[";for (auto it = v.begin(); it != v.end(); ++it){if (it != v.begin())os << ", ";os << *it;}return os << "]";}
 template <typename T1, typename T2>
@@ -23,33 +23,31 @@ template <typename T, typename... Args>
 void _dbg(T &&arg, Args &&...args){cerr << arg;if (sizeof...(args) > 0)cerr << ", ";_dbg(args...);}
 template <typename T, typename N, typename... Args>
 void _dbg(T *arr, N n, Args &&...rest){cerr << "[";for (N i = 0; i < n; ++i){if (i != 0)cerr << ", ";cerr << arr[i];}cerr << "]";if (sizeof...(rest) > 0)cerr << ", ";_dbg(rest...);}
-const int N = 1e5 + 10, M = 1e5 + 10;
+#define int long long
+constexpr int N = 1e5 + 10, M = 1e5 + 10;
+map<string, int> mp;
+vector<string> a;
 inline void solve()
 {
-	int n,k;    
-    cin>>n>>k;
-    vector<int> a(n),b(n);
-    for(int i=0;i<n;i++) cin>>a[i];
-    for(int i=0;i<n;i++) cin>>b[i];
-	map<int,int> mp;
-    for(int i=0;i<n;i++)
+    int n;cin>>n;
+    a.reserve(n);
+    for (int i = 1; i <= n;i++)
     {
-        mp[min(a[i] % k, k - a[i] % k)]++;
+        string str;
+        cin >> str;
+        a.pb(str);
+        mp[str]++;
     }
-    for (int i = 0; i < n;i++)
-    
+    int ans = 0;
+    for(auto str:a)
     {
-        if (mp.find(min(b[i] % k, k - b[i] % k)) == mp.end() || mp[min(b[i] % k, k - b[i] % k)] == 0)
-        {
-            cout<<"NO"<<endl;
-            return;
-        }
-        else
-        {
-            mp[min(b[i] % k, k - b[i] % k)]--;
-        }
+        string tmp="";
+        int sum = 0;
+        for(auto c:str)
+            tmp.pb(c), sum += mp[tmp];
+        ans = max(ans, sum);
     }
-    cout<<"YES"<<endl;
+    cout << ans << endl;
 }
 
 signed main()
@@ -59,7 +57,8 @@ signed main()
 	char readBuffer[1 << 20];
 	cin.rdbuf()->pubsetbuf(readBuffer, sizeof(readBuffer));
 #endif
-	int T = 1;	cin>>T;
+	int T = 1;	
+    // cin>>T;
 	while(T--)
 	{
 		solve();
