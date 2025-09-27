@@ -27,16 +27,20 @@ void _dbg(T *arr, N n, Args &&...rest){cerr << "[";for (N i = 0; i < n; ++i){if 
 constexpr int N = 1e5 + 10, M = 1e5 + 10;
 inline void solve()
 {
-    string o, e;
-    cin >> o >> e;
-    string res = "";
-    for(int i = 0; i < o.size(); i++)
+    string str;
+    cin >> str;
+    int diff = INT_MAX,ans = 0;
+    for(int i = 0;i < str.size()-2;i++)
     {
-        res += o[i];
-        if (i < e.size())
-            res += e[i];
+        int num = 0;
+        num = (str[i]-'0')*100 + (str[i+1]-'0')*10 + (str[i+2]-'0');
+        if(abs(num - 753) < diff)
+        {
+            diff = abs(num - 753);
+            ans = diff;
+        }
     }
-    cout << res << endl;
+    cout << ans << endl;
 }
 
 signed main()

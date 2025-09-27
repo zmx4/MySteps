@@ -11,7 +11,7 @@ using namespace std;
 constexpr int inf = 0x3f3f3f3f;
 constexpr long long INF = 0x3f3f3f3f3f3f3f3f;
 ll gcd(ll a, ll b){if (b == 0)return a;return gcd(b, a % b);}
-ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
+ll lcm(ll a, ll b) { if(a==0||b==0)return 0;return a / gcd(a, b) * b;}
 void test(){cout<<"test"<<endl;}
 template <typename T>
 ostream &operator<<(ostream &os, const vector<T> &v){os << "[";for (auto it = v.begin(); it != v.end(); ++it){if (it != v.begin())os << ", ";os << *it;}return os << "]";}
@@ -27,16 +27,22 @@ void _dbg(T *arr, N n, Args &&...rest){cerr << "[";for (N i = 0; i < n; ++i){if 
 constexpr int N = 1e5 + 10, M = 1e5 + 10;
 inline void solve()
 {
-    string o, e;
-    cin >> o >> e;
-    string res = "";
-    for(int i = 0; i < o.size(); i++)
+    int n, m;
+    cin >> n >> m;
+    string s, t;
+    cin >> s >> t;
+    // s = " " + s;
+    // t = " " + t;
+    int x = gcd(n,m);
+    for (int i = 0;i < x;i++)
     {
-        res += o[i];
-        if (i < e.size())
-            res += e[i];
+        if (s[n/x*i] != t[m/x*i])
+        {
+            cout << -1 << endl;
+            return;
+        }
     }
-    cout << res << endl;
+    cout << lcm(n,m) << endl;
 }
 
 signed main()

@@ -25,18 +25,73 @@ template <typename T, typename N, typename... Args>
 void _dbg(T *arr, N n, Args &&...rest){cerr << "[";for (N i = 0; i < n; ++i){if (i != 0)cerr << ", ";cerr << arr[i];}cerr << "]";if (sizeof...(rest) > 0)cerr << ", ";_dbg(rest...);}
 #define int long long
 constexpr int N = 1e5 + 10, M = 1e5 + 10;
+string a, b, c;
+int n, m, k;
+int now = 1;
+int check(char x)
+{
+    if(x == 'a')
+    {
+        return 1;
+
+    }
+    if(x == 'b') return 2;
+    if(x == 'c') return 3;
+    return 0;
+}
+bool flag = true;
+void output()
+{
+    if(now == 1 && n== 0) 
+    {
+        cout << "A" << endl;
+        flag = false;
+    }
+    else if(now == 2 && m == 0)
+    {
+        cout << "B" << endl;
+        flag = false;
+    }
+    else if(now == 3 && k == 0) 
+    {
+        cout << "C" << endl;
+        flag = false;
+    }
+}
 inline void solve()
 {
-    string o, e;
-    cin >> o >> e;
-    string res = "";
-    for(int i = 0; i < o.size(); i++)
+    
+    cin >> a >> b >> c;
+    reverse(a.begin(), a.end());
+    reverse(b.begin(), b.end());
+    reverse(c.begin(), c.end());
+    n = a.size(), m = b.size(), k = c.size();
+    
+    while(n >= 0 && m >= 0 && k >= 0)
     {
-        res += o[i];
-        if (i < e.size())
-            res += e[i];
+        output();
+        if(!flag) break;
+        if(now == 1)
+        {
+            now = check(a.back());
+            a.pop_back();
+            n--;
+        }
+        else if(now == 2)
+        {
+            now = check(b.back());
+            b.pop_back();
+            m--;
+        }
+        else
+        {
+            now = check(c.back());
+            c.pop_back();
+            k--;
+        }
     }
-    cout << res << endl;
+    
+
 }
 
 signed main()
