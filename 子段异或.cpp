@@ -22,37 +22,34 @@ void _dbg(T &&arg, Args &&...args){cerr << arg;if (sizeof...(args) > 0)cerr << "
 template <typename T, typename N, typename... Args>
 void _dbg(T *arr, N n, Args &&...rest){cerr << "[";for (N i = 0; i < n; ++i){if (i != 0)cerr << ", ";cerr << arr[i];}cerr << "]";if (sizeof...(rest) > 0)cerr << ", ";_dbg(rest...);}
 #define int long long
-constexpr int N = 1e5 + 10, M = 1e5 + 10, mod = 998244353;
+constexpr int N = 1e5 + 10, M = 1e5 + 10;
+ll C(int n,int m)
+    {
+    if(m>n)return 0;
+    ll res=1;
+    for(int i=1;i<=m;i++){
+        res=res*(n-i+1)/i;
+    }
+    return res;
+};
 inline void solve()
 {
-    int n, k;
-    cin >> n >> k;
-    vector<int> a(n + 1, 0);
-    for (int i = 1; i <= n; i++)
+    int n;
+    cin >> n;
+    vector<int> a(n+1);
+    for (int i = 1; i <= n; ++i)
     {
         cin >> a[i];
-        // a[i] += a[i - 1];
+        a[i] ^= a[i - 1];
     }
-    ll ans = -1;
-    // int zero = 0;
-    ll temp = a[1];
-    deque<int> dq;
-    for (int i = 1; i <= n;i++){
-        if(a[i]==0){
-            dq.clear();
-            temp = 0;
-            continue;
-        }
-        dq.push_back(a[i]);
-        temp *= a[i];
-        temp %= mod;
-        if(dq.size()>k){
-            temp /= dq.front();
-            dq.pop_front();
-        }
-        if(dq.size()==k){
-            ans = max(ans, temp);
-        }
+    sort(a.begin()+1, a.end());
+    int ans = 0;
+    for (int i = 0; i <= n;)
+    {
+        int j = i + 1;
+        while(j <= n && a[j] == a[i]) j++;
+        ans += C(j - i , 2);
+        i = j;
     }
     cout << ans << endl;
 }
