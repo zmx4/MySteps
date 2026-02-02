@@ -7,6 +7,9 @@
             "description": "正在使用编译器: C = C:\\Env\\MSYS\\ucrt64\\bin\\gcc.exe, CXX = C:\\Env\\MSYS\\ucrt64\\bin\\g++.exe",
             "generator": "MinGW Makefiles",
             "binaryDir": "${sourceDir}/build/${presetName}",
+            "environment": {
+                "PATH": "C:/Env/MSYS/ucrt64/bin;$penv{PATH}"
+            },
             "cacheVariables": {
                 "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
                 "CMAKE_C_COMPILER": "C:/Env/MSYS/ucrt64/bin/gcc.exe",
