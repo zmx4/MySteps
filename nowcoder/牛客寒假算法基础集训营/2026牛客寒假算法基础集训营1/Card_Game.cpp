@@ -39,6 +39,7 @@ void _dbg(T *arr, N n, Args &&...rest){cerr << "[";for (N i = 0; i < n; ++i){if 
 namespace solve
 {
 constexpr int N = 1e5 + 10, M = 1e5 + 10;
+constexpr int MOD = 998244353;
 inline void Tick()
 {
     int n;
@@ -46,10 +47,22 @@ inline void Tick()
     vector<int> b(n), h(n);
     for(auto &it : b) cin >> it;
     for(auto &it : h) cin >> it;
-    sort(b.begin(), b.end());
-    sort(h.begin(), h.end());
+    int minn = inf;
+    for (int i = 0; i < n; i++)minn = min(minn,h[i]);
     int i1 = 0, i2 = 0;
-    
+    for(int i = 0; i < n; i++)
+    {
+        if(b[i] > minn)
+            i1++;
+        else  
+            i2++;
+    }
+    int ans = 1;
+    for(int i = 1; i <= i1; i++)
+        ans = (ans * i) % MOD;
+    for(int i = 1; i <= i2; i++)
+        ans = (ans * i) % MOD;
+    cout << ans << endl;
 }
 }
 #pragma endregion
