@@ -34,38 +34,15 @@ template <typename T, typename... Args>
 void _dbg(T &&arg, Args &&...args){cerr << arg;if (sizeof...(args) > 0)cerr << ", ";_dbg(args...);}
 template <typename T, typename N, typename... Args>
 void _dbg(T *arr, N n, Args &&...rest){cerr << "[";for (N i = 0; i < n; ++i){if (i != 0)cerr << ", ";cerr << arr[i];}cerr << "]";if (sizeof...(rest) > 0)cerr << ", ";_dbg(rest...);}
-#include <cmath>
-#include <format>
-#include <iomanip>
 #pragma region solve
 #define int long long
 namespace solve
 {
-double xa, ya, xb, yb;
-// bool check(double x,double y = 0)
-// {
-//     double a = sqrt((xa - x) * (xa - x) + (ya - y) * (ya - y));
-//     double b = sqrt((xb - x) * (xb - x) + (yb - y) * (yb - y));
-//     double c = sqrt((xa - xb) * (xa - xb) + (ya - yb) * (ya - yb));
-//     double p = (a + b + c) / 2;
-//     double s = sqrt(p * (p - a) * (p - b) * (p - c));
-//     return s >= 2;
-// }
 constexpr int N = 1e5 + 10, M = 1e5 + 10;
 inline void Tick()
 {
-    cin >> xa >> ya;
-    cin >> xb >> yb;
-    if(yb==ya){
-        double t=fabs((xb-xa)*ya);
-        if(fabs(t-4.0)<=1e-9) cout<<0.0<<"\n";
-        else cout<<"no answer"<<endl;
-        return;
-    }
-    long double C = (yb-ya)*xa-(xb-xa)*ya;
-    long double D = ya - yb;
-    long double x = (4.0 - C) / D;
-    cout << std::fixed << std::setprecision(10) << x << "\n";
+    int n;cin>>n;
+    cout << n - 1 + n / 5 << endl;
 }
 }
 #pragma endregion
@@ -81,7 +58,7 @@ signed main()
     cin.rdbuf()->pubsetbuf(readBuffer, sizeof(readBuffer));
 #endif
     int T = 1;
-    // cin >> T;
+    cin >> T;
     while (T--)
     {
         solve::Tick();
