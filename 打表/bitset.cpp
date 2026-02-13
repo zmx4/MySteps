@@ -15,6 +15,6 @@ signed main()
 		bitset<32> a(n);
 		cout << a << endl;
 	}
-
-	return 0;
+    
+    return 0;
 }
