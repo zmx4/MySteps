@@ -1,103 +1,132 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <string>
+#include <vector>
+#include <queue>
+#include <cstdint>
+#include <map>
+#include <algorithm>
+#include <stack>
+#include <unordered_set>
+#include <unordered_map>
+#include <set>
+#include <cstring>
+#include <climits>
+#include <iterator>
+#include <bitset>
+#define endl "\n"
+#define fi first
+#define se second
+#define pb push_back
+#define gcd __gcd
+typedef int64_t i64;
+typedef int32_t i32;
+using ll = long long;
+using ull = unsigned long long;
+using LL = long long;
+using ULL = unsigned long long;
+using std::cout, std::bitset, std::cin, std::cerr, std::vector, std::string, std::pair, std::map, std::set, std::priority_queue, std::queue, std::stack, std::sort, std::unordered_map, std::unordered_set, std::min, std::max, std::sort, std::reverse, std::swap, std::abs, std::ostream, std::to_string, std::lower_bound, std::upper_bound, std::deque;
+constexpr int inf = 0x3f3f3f3f;
+constexpr long long INF = 0x3f3f3f3f3f3f3f3f;
+ll gcd(ll a, ll b)
+{
+    if (b == 0)
+        return a;
+    return gcd(b, a % b);
+}
+ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
+void test() { cout << "test" << endl; }
+template <typename T>
+ostream &operator<<(ostream &os, const vector<T> &v)
+{
+    os << "[";
+    for (auto it = v.begin(); it != v.end(); ++it)
+    {
+        if (it != v.begin())
+            os << ", ";
+        os << *it;
+    }
+    return os << "]";
+}
+template <typename T1, typename T2>
+ostream &operator<<(ostream &os, const pair<T1, T2> &p) { return os << "(" << p.first << ", " << p.second << ")"; }
+#define dbg(...) cerr << "[" << __LINE__ << "] " << #__VA_ARGS__ << " = ", _dbg(__VA_ARGS__), cerr << endl
+void _dbg() {}
+template <typename T, typename... Args>
+void _dbg(T &&arg, Args &&...args)
+{
+    cerr << arg;
+    if (sizeof...(args) > 0)
+        cerr << ", ";
+    _dbg(args...);
+}
+template <typename T, typename N, typename... Args>
+void _dbg(T *arr, N n, Args &&...rest)
+{
+    cerr << "[";
+    for (N i = 0; i < n; ++i)
+    {
+        if (i != 0)
+            cerr << ", ";
+        cerr << arr[i];
+    }
+    cerr << "]";
+    if (sizeof...(rest) > 0)
+        cerr << ", ";
+    _dbg(rest...);
+}
 #define int long long
-#define eb emplace_back
-const int N = 2e5 + 10;
-int read()
+#pragma region solve
+namespace solve
 {
-    int x = 0, f = 1;
-    char ch = getchar();
-    while (!isdigit(ch))
+    constexpr int N = 1e5 + 10, M = 1e5 + 10;
+    constexpr int tar = 1e18;
+    inline void Tick()
     {
-        if (ch == '-')
-            f = -1;
-        ch = getchar();
-    }
-    while (isdigit(ch))
-    {
-        x = x * 10 + ch - '0';
-        ch = getchar();
-    }
-    return x * f;
-}
-int a[N];
-void run()
-{
-    int T = read(), ca = 1;
-    while (T--)
-    {
-        int n = read();
-        for (int i = 1; i <= n; ++i)
-            a[i] = read();
-        set<int> buc[3];
-        for (int i = 1; i <= n; ++i)
-            if (a[i] == 0)
-                buc[0].insert(i);
-            else if (a[i] == 1)
-                buc[1].insert(i);
-            else
-                buc[2].insert(i);
-        auto chk = [&](void)
+        int n, k;
+        cin >> n >> k;
+        vector<int> a(n + 1), b(n + 1);
+        for (int i = 0; i < n; ++i)
+            cin >> a[i];
+        for (int i = 0; i < n; ++i)
+            cin >> b[i];
+        a[n] = b[n] = INF;
+        sort(a.begin(), a.end());
+        sort(b.begin(), b.end());
+        int neg = 0, pri = 0, pos = n, ans = 0;
+        int pa = 0, pb = 0;
+        while (pa < n || pb < n)
         {
-            int cnt = 0;
-            vector<int> id;
-            for (int i = 0; i < 3; ++i)
-                if (buc[i].size())
-                    ++cnt, id.eb(i);
-            if (cnt == 1)
-                return 1;
-            else if (cnt == 2)
+            pri = min(a[pa], b[pb]);
+            if (neg <= k)
             {
-                if (*buc[id[0]].rbegin() < *buc[id[1]].begin())
-                    return 1;
-                return 0;
+                ans = max(ans, pri * pos);
             }
-            else
-            {
-                if (*buc[0].rbegin() < *buc[1].begin() && *buc[1].rbegin() < *buc[2].begin())
-                    return 1;
-                return 0;
-            }
-        };
-        vector<pair<int, int>> op;
-        while (!chk())
-        {
-            if (buc[0].size() && buc[1].size())
-            {
-                int x = *buc[0].rbegin(), y = *buc[1].begin();
-                if (x > y)
-                {
-                    op.eb(x, y);
-                    buc[0].erase(x);
-                    buc[1].erase(y);
-                    buc[0].insert(y);
-                    buc[1].insert(x);
-                }
-            }
-            if (chk())
-                break;
-            if (buc[1].size() && buc[2].size())
-            {
-                int x = *buc[1].rbegin(), y = *buc[2].begin();
-                if (x > y)
-                {
-                    op.eb(x, y);
-                    buc[1].erase(x);
-                    buc[2].erase(y);
-                    buc[1].insert(y);
-                    buc[2].insert(x);
-                }
-            }
+            while (a[pa] == pri)
+                pa++, neg++;
+            while (b[pb] == pri)
+                pb++, neg--, pos--;
         }
-        cout << op.size() << '\n';
-        for (auto &[x, y] : op)
-            cout << x << ' ' << y << '\n';
+        cout << ans << endl;
     }
 }
+#pragma endregion
+#pragma region main
 signed main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    run();
+    cin.tie(nullptr)->std::ios::sync_with_stdio(false);
+    cout.tie(nullptr);
+    // cin.exceptions(cin.failbit | cin.badbit);
+#if ONLINE_JUDGE
+    char readBuffer[1 << 20];
+    cin.rdbuf()->pubsetbuf(readBuffer, sizeof(readBuffer));
+#endif
+    int T = 1;
+    cin >> T;
+    while (T--)
+    {
+        solve::Tick();
+    }
+
     return 0;
 }
+#pragma endregion

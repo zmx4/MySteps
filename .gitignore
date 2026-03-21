@@ -27,3 +27,4 @@ build/.cmake/api/v1/*
 *.pdb
 /gcm.cache
 /打表/.venv
+.zed/*
