@@ -1,132 +1,143 @@
-#include <iostream>
-#include <string>
-#include <vector>
-#include <queue>
-#include <cstdint>
-#include <map>
-#include <algorithm>
-#include <stack>
-#include <unordered_set>
-#include <unordered_map>
-#include <set>
-#include <cstring>
-#include <climits>
-#include <iterator>
-#include <bitset>
-#define endl "\n"
-#define fi first
-#define se second
-#define pb push_back
-#define gcd __gcd
-typedef int64_t i64;
-typedef int32_t i32;
-using ll = long long;
-using ull = unsigned long long;
-using LL = long long;
-using ULL = unsigned long long;
-using std::cout, std::bitset, std::cin, std::cerr, std::vector, std::string, std::pair, std::map, std::set, std::priority_queue, std::queue, std::stack, std::sort, std::unordered_map, std::unordered_set, std::min, std::max, std::sort, std::reverse, std::swap, std::abs, std::ostream, std::to_string, std::lower_bound, std::upper_bound, std::deque;
-constexpr int inf = 0x3f3f3f3f;
-constexpr long long INF = 0x3f3f3f3f3f3f3f3f;
-ll gcd(ll a, ll b)
+#include <bits/stdc++.h>
+#define endl '\n'
+#define lowbit(x) (x) & (-x)
+using namespace std;
+
+typedef double db;
+typedef long long ll;
+typedef __int128 III;
+const db eqs = 1e-6;
+const int inf = 1e9;
+void ll_cmax(ll &a, ll b) { a = a > b ? a : b; }
+void ll_cmin(ll &a, ll b) { a = a < b ? a : b; }
+void int_cmax(int &a, int b) { a = a > b ? a : b; }
+void int_cmin(int &a, int b) { a = a < b ? a : b; }
+bool db_eq(db a, db b) { return fabs(a - b) < eqs; }
+bool number(char ch) { return ch >= '0' && ch <= '9'; }
+bool lowerchar(char ch) { return ch >= 'a' && ch <= 'z'; }
+int sqlong(int n)
 {
-    if (b == 0)
+    int sq = sqrt(n) + 1;
+    return min(sq, n);
+}
+
+const int MAXN = 200000 + 5;
+int T, a[MAXN];
+ll n, k;
+
+ll quick_power(ll a, ll n)
+{
+    if (n == 0)
+        return 1;
+    if (n == 1)
         return a;
-    return gcd(b, a % b);
+    ll sum = quick_power(a * a, n / 2);
+    if (n % 2 == 1)
+        sum *= a;
+    return sum;
 }
-ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
-void test() { cout << "test" << endl; }
-template <typename T>
-ostream &operator<<(ostream &os, const vector<T> &v)
+
+int main()
 {
-    os << "[";
-    for (auto it = v.begin(); it != v.end(); ++it)
-    {
-        if (it != v.begin())
-            os << ", ";
-        os << *it;
-    }
-    return os << "]";
-}
-template <typename T1, typename T2>
-ostream &operator<<(ostream &os, const pair<T1, T2> &p) { return os << "(" << p.first << ", " << p.second << ")"; }
-#define dbg(...) cerr << "[" << __LINE__ << "] " << #__VA_ARGS__ << " = ", _dbg(__VA_ARGS__), cerr << endl
-void _dbg() {}
-template <typename T, typename... Args>
-void _dbg(T &&arg, Args &&...args)
-{
-    cerr << arg;
-    if (sizeof...(args) > 0)
-        cerr << ", ";
-    _dbg(args...);
-}
-template <typename T, typename N, typename... Args>
-void _dbg(T *arr, N n, Args &&...rest)
-{
-    cerr << "[";
-    for (N i = 0; i < n; ++i)
-    {
-        if (i != 0)
-            cerr << ", ";
-        cerr << arr[i];
-    }
-    cerr << "]";
-    if (sizeof...(rest) > 0)
-        cerr << ", ";
-    _dbg(rest...);
-}
-#define int long long
-#pragma region solve
-namespace solve
-{
-    constexpr int N = 1e5 + 10, M = 1e5 + 10;
-    constexpr int tar = 1e18;
-    inline void Tick()
-    {
-        int n, k;
-        cin >> n >> k;
-        vector<int> a(n + 1), b(n + 1);
-        for (int i = 0; i < n; ++i)
-            cin >> a[i];
-        for (int i = 0; i < n; ++i)
-            cin >> b[i];
-        a[n] = b[n] = INF;
-        sort(a.begin(), a.end());
-        sort(b.begin(), b.end());
-        int neg = 0, pri = 0, pos = n, ans = 0;
-        int pa = 0, pb = 0;
-        while (pa < n || pb < n)
-        {
-            pri = min(a[pa], b[pb]);
-            if (neg <= k)
-            {
-                ans = max(ans, pri * pos);
-            }
-            while (a[pa] == pri)
-                pa++, neg++;
-            while (b[pb] == pri)
-                pb++, neg--, pos--;
-        }
-        cout << ans << endl;
-    }
-}
-#pragma endregion
-#pragma region main
-signed main()
-{
-    cin.tie(nullptr)->std::ios::sync_with_stdio(false);
-    cout.tie(nullptr);
-    // cin.exceptions(cin.failbit | cin.badbit);
-#if ONLINE_JUDGE
-    char readBuffer[1 << 20];
-    cin.rdbuf()->pubsetbuf(readBuffer, sizeof(readBuffer));
-#endif
-    int T = 1;
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
     cin >> T;
     while (T--)
     {
-        solve::Tick();
+        cin >> n >> k;
+        int cnt = 0;
+        ll sum = 1;
+        while (sum < k)
+        {
+            sum *= 2;
+            ++cnt;
+        }
+        if (n - 1 < cnt)
+        {
+            cout << -1 << endl;
+            continue;
+        }
+        //		cout<<"ok\n";
+        int q = n - 1, l = 1, r = n;
+        for (int i = 1; i <= n; i++)
+        {
+        cout<<k<<" "<<cnt<<" "<<q<<endl;
+            if (cnt <= q - 1)
+            {
+                a[l++] = i;
+            }
+            else
+            {
+                a[r--] = i;
+                k -= quick_power(2, q - 1);
+                sum = 1;
+                cnt = 0;
+                while (sum < k)
+                {
+                    sum *= 2;
+                    ++cnt;
+                }
+            }
+            q--;
+        }
+        cout << k << " " << cnt << " " << q << endl;
+        for (int i = 1; i <= n; i++)
+            cout << a[i] << " ";
+        cout << endl;
     }
-
     return 0;
 }
-#pragma endregion
+// by Matrix_Power
+/*
+
+思考过程：
+
+a1 a2 a3 a4
+
+a1+a1+a1+a1+a2+a2+a2+a3+a3+a4=4a1+3a2+2a3+a4
+
+-------------------------
+
+a4 a3 a2 a1
+
+a4+a3+a2+a1+a3+a2+a1+a2+a1+a1=4a1+3a2+2a3+a4
+
+-------------------------
+
+a3 a2 a1 a4
+
+a3+a2+a1+a1+a2+a1+a1+a1+a1+a4=6a1+2a2+a3+a4
+
+-------------------------
+
+a1 a2 a3 a4
+a1 a3 a4 a2
+a1 a4 a3 a2
+a2 a3 a4 a1
+a2 a4 a3 a1
+a3 a4 a2 a1
+a4 a3 a2 a1
+
+(n-1)n/2+1?No
+*/
+
+/*
+k=2,cnt=1,q=2
+1 2 3 4  0
+1 2 4 3  1
+1 3 4 2  2
+1 4 3 2  3
+2 3 4 1  3
+2 4 3 1  4
+3 4 2 1  5
+4 3 2 1  6
+*/
+
+/*
+k=2,q=1,cnt=1
+1 2 3
+1 3 2
+2 3 1
+3 2 1
+*/
