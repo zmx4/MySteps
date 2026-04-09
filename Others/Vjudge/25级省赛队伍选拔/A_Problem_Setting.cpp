@@ -41,20 +41,61 @@ void _dbg(T *arr, N n, Args &&...rest){cerr << "[";for (N i = 0; i < n; ++i){if 
 namespace solve
 {
 constexpr int N = 1e5 + 10, M = 1e5 + 10;
-bool vis[N];
-int ans;
-void dfs(int u,int now,int x)
-{
-    if(u==x)
-    {
-        ans += now;
-    }
-}
+struct limit{
+    int l, r;
+} ;
 inline void Tick()
 {
-    string str;
-    cin >> str;
-    ans = stoll(str);
+    int n, q;
+    cin >> n >> q;
+    vector<int> a(n+1);
+    for (int i = 1; i <= n;i++)
+        cin >> a[i];
+    vector<limit> lm(n + 1);
+    bitset<128> b;
+    bool ok = 1;
+    for (int i = 1; i <= q;i++)
+    {
+        int p, l, r;
+        cin >> p >> l >> r;
+        if(!b[p])
+        {
+            lm[p].l = l;
+            lm[p].r = r;
+            b[p] = 1;
+        }
+        else
+        {
+            if(lm[p].r < l||lm[p].l > r)
+                ok = 0;
+            else
+            {
+                lm[p].l = max(lm[p].l, l);
+                lm[p].r = min(lm[p].r, r);
+            }
+        }
+    }
+    if(!ok)
+    {
+        cout << -1 << endl;
+        return;
+    }
+    int ans = 0;
+    for (int i = 1; i <= n;i++)
+    {
+        if(b[i])
+        {
+            if(a[i] < lm[i].l)
+            {
+                ans += lm[i].l - a[i];
+            }
+            else if(a[i] > lm[i].r)
+            {
+                ans += a[i] - lm[i].r;
+            }
+        }
+    }
+    cout << ans << endl;
 }
 }
 #pragma endregion
