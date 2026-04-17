@@ -11,18 +11,17 @@ signed main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr),cout.tie(nullptr);
-    #if ONLINE_JUDGE
-    char readBuffer[1 << 20];
-    cin.rdbuf()->pubsetbuf(readBuffer, sizeof(readBuffer));
-    #endif
 
-
-
-
-
-
-
-
+    string s;
+    char c,r;
+    getline(cin, s);
+    cin >> c >> r;
+    for(auto &ch : s)
+    {
+        if(ch == c)
+            ch = r;
+    }
+    cout << s << endl;
 
     return 0;
 }
