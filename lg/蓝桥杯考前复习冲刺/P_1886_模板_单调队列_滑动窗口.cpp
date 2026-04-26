@@ -45,7 +45,47 @@ inline void Tick()
 {
     int n, k;
     cin >> n >> k;
-    queue<int> q;
+    deque<int> q;
+    vector<int> a(n + 1);
+    for (int i = 1; i <= n; ++i)
+    {
+        cin >> a[i];
+    }
+    for (int i = 1; i <= n; ++i)
+    {
+        while (!q.empty() && a[q.back()] >= a[i])
+        {
+            q.pop_back();
+        }
+        q.push_back(i);
+        if (q.front() <= i - k)
+        {
+            q.pop_front();
+        }
+        if (i >= k)
+        {
+            cout << a[q.front()] << " ";
+        }
+    }
+    cout << endl;
+    q.clear();
+    for (int i = 1; i <= n;++i)
+    {
+        while (!q.empty() && a[q.back()] <= a[i])
+        {
+            q.pop_back();
+        }
+        q.push_back(i);
+        if (q.front() <= i - k)
+        {
+            q.pop_front();
+        }
+        if (i >= k)
+        {
+            cout << a[q.front()] << " ";
+        }
+    }
+    cout << endl;
     
 }
 }
@@ -62,7 +102,7 @@ signed main()
     cin.rdbuf()->pubsetbuf(readBuffer, sizeof(readBuffer));
 #endif
     int T = 1;
-    cin >> T;
+    // cin >> T;
     while (T--)
     {
         solve::Tick();
