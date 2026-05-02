@@ -41,69 +41,30 @@ void _dbg(T *arr, N n, Args &&...rest){cerr << "[";for (N i = 0; i < n; ++i){if 
 namespace solve
 {
 constexpr int N = 1e5 + 10, M = 1e5 + 10;
-struct DSU
-{
-    vector<int> p, sz;
-    DSU(int n) : p(n + 1), sz(n + 1, 1)
-    { // sz初始化为1
-        iota(p.begin(), p.end(), 0);
-    }
-    int find(int x)
-    {
-        return p[x] == x ? x : p[x] = find(p[x]);
-    }
-    bool unite(int a, int b)
-    {
-        a = find(a);
-        b = find(b);
-        if (a == b)
-            return false;
-        // 把b合并到a上，尺寸累加
-        p[b] = a;
-        sz[a] += sz[b];
-        return true;
-    }
-};
-struct edge
-{
-    int u, v, w;
-    bool operator<(const edge &other) const
-    {
-        return w < other.w;
-    }
-};
-const int mod = 998244353;
-i64 qpow(i64 x, i64 p)
-{
-    i64 res = 1 % mod;
-    x %= mod;
-    for (; p; p >>= 1, x = x * x % mod)
-        if (p & 1)
-            res = res * x % mod;
-    return res;
-}
 inline void Tick()
 {
-    int n, s;
-    cin >> n >> s;
-    DSU dsu(n);
-    vector<edge> edges(n - 1);
-    map<int,int> mp;
-    for (int i = 0; i < n - 1; ++i)
+    int n;cin>>n;
+    string s;cin>>s;
+    // s = ' ' + s;
+    vector<vector<int>> f(n + 1, vector<int>(2));
+    auto getnum = [&](int i) -> int
     {
-        cin >> edges[i].u >> edges[i].v >> edges[i].w;
-    }
-    sort(edges.begin(), edges.end());
-    int ans = 1;
-    for(auto &[u, v, w] : edges)
+        return i - '0';
+    };
+    f[0][0] = s[0] - '0';
+    f[1][0] = min(f[0][0] +getnum(s[1]), f[0][0]*getnum(s[1]));
+    f[1][1] = f[0][0] * 10 + getnum(s[1]);
+    for (int i = 2; i < n; ++i)
     {
-        int ru = dsu.find(u), rv = dsu.find(v);
-        int su = dsu.sz[ru], sv = dsu.sz[rv];
-        ans = ans * qpow(s - w + 1, su * sv - 1) % mod;
-        dsu.unite(ru, rv);
+        int num = getnum(s[i]);
+        int num1 = getnum(s[i-1]) * 10 + num;
+        f[i][0] = min(f[i-1][0] + num, f[i-1][0] * num);
+        f[i][1] = min(min(f[i-2][0] + num1, f[i-2][0] * num1), 
+                      min(f[i-1][1] + num, f[i-1][1] * num));
     }
-    cout << ans << endl;
+    cout << f[n-1][1] << endl;
 }
+
 }
 #pragma endregion
 
