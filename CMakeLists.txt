@@ -49,4 +49,5 @@ if(CMAKE_C_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 #add_executable(MySteps main.cpp)
-add_executable(Try     test.cpp)
+add_executable(Try     test.cpp
+    "codeforces/VP/2025 ICPC Nanchang Invitational and Jiangxi Provincial Collegiate Programming Contest/F.cpp")
