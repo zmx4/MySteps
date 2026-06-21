@@ -1,109 +1,88 @@
-#include <bits/stdc++.h>
-#define endl "\n"
-#define fi first
-#define se second
-#define pb push_back
-#define gcd __gcd
-typedef int64_t i64;
-typedef int32_t i32;
-using ll = long long;
-using ull = unsigned long long;
-using LL = long long;
-using ULL = unsigned long long;
-using std::cout, std::cin, std::cerr, std::vector, std::string, std::pair, std::map, std::set, std::priority_queue, std::queue, std::stack, std::sort, std::unordered_map, std::unordered_set, std::min, std::max, std::sort, std::reverse, std::swap, std::abs, std::ostream, std::to_string, std::lower_bound, std::upper_bound, std::deque;
-constexpr int inf = 0x3f3f3f3f;
-constexpr long long INF = 0x3f3f3f3f3f3f3f3f;
-ll gcd(ll a, ll b)
-{
-    if (b == 0)
-        return a;
-    return gcd(b, a % b);
-}
-ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
-void test() { cout << "test" << endl; }
-template <typename T>
-ostream &operator<<(ostream &os, const vector<T> &v)
-{
-    os << "[";
-    for (auto it = v.begin(); it != v.end(); ++it)
-    {
-        if (it != v.begin())
-            os << ", ";
-        os << *it;
-    }
-    return os << "]";
-}
-template <typename T1, typename T2>
-ostream &operator<<(ostream &os, const pair<T1, T2> &p) { return os << "(" << p.first << ", " << p.second << ")"; }
-#define dbg(...) cerr << "[" << __LINE__ << "] " << #__VA_ARGS__ << " = ", _dbg(__VA_ARGS__), cerr << endl
-void _dbg() {}
-template <typename T, typename... Args>
-void _dbg(T &&arg, Args &&...args)
-{
-    cerr << arg;
-    if (sizeof...(args) > 0)
-        cerr << ", ";
-    _dbg(args...);
-}
-template <typename T, typename N, typename... Args>
-void _dbg(T *arr, N n, Args &&...rest)
-{
-    cerr << "[";
-    for (N i = 0; i < n; ++i)
-    {
-        if (i != 0)
-            cerr << ", ";
-        cerr << arr[i];
-    }
-    cerr << "]";
-    if (sizeof...(rest) > 0)
-        cerr << ", ";
-    _dbg(rest...);
-}
-#define int long long
-constexpr int N = 1e5 + 10, M = 1e5 + 10;
-ll C(int n, int m)
-{
-    if (m > n)
-        return 0;
-    ll res = 1;
-    for (int i = 1; i <= m; i++)
-    {
-        res = res * (n - i + 1) / i;
-    }
-    return res;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cmath>
+
+// 复用之前的结果结构体
+struct DiskResult {
+    std::vector<int> accessOrder; // 磁头访问的磁道顺序
+    int totalSeekLength;          // 总寻道长度
+    double avgSeekLength;         // 平均寻道长度
 };
-inline void solve()
-{
-    int n;
-    cin >> n;
-    unordered_set<int> s;
-    for( int i = 0; i < n; ++i )
-    {
-        int x;
-        cin >> x;
-        if(!s.contains(x))
-        {
-            s.insert(x);
-            cout << x << " ";
+
+/**
+ * @brief 执行 SCAN (电梯算法) 磁盘调度算法
+ * @param requests 初始的磁道请求序列
+ * @param currentHead 磁头当前所在的初始位置
+ * @param direction 初始移动方向：1 表示向外(递增)，-1 表示向内(递减)
+ * @return DiskResult 包含访问顺序、总寻道长度和平均寻道长度的结果结构体
+ */
+DiskResult runSCAN(std::vector<int> requests, int currentHead, int direction = 1) {
+    DiskResult result;
+    result.totalSeekLength = 0;
+    int n = requests.size();
+
+    if (n == 0) return result;
+
+    // 1. 对请求序列进行排序，便于按顺序扫描
+    std::sort(requests.begin(), requests.end());
+
+    int head = currentHead;
+    result.accessOrder.push_back(head); // 记录起始位置
+
+    // 2. 找到当前磁头位置在排序后数组中的分割点
+    // lower_bound 返回第一个 >= head 的迭代器
+    auto it = std::lower_bound(requests.begin(), requests.end(), head);
+    int splitIndex = std::distance(requests.begin(), it);
+
+    // 3. 根据初始方向决定扫描顺序
+    if (direction == 1) { 
+        // 向外(递增)方向扫描
+        for (int i = splitIndex; i < n; ++i) {
+            result.totalSeekLength += std::abs(requests[i] - head);
+            head = requests[i];
+            result.accessOrder.push_back(head);
+        }
+        // 到达边界后反向，处理剩余（递减方向）的请求
+        for (int i = splitIndex - 1; i >= 0; --i) {
+            result.totalSeekLength += std::abs(requests[i] - head);
+            head = requests[i];
+            result.accessOrder.push_back(head);
+        }
+    } else { 
+        // 向内(递减)方向扫描
+        for (int i = splitIndex - 1; i >= 0; --i) {
+            result.totalSeekLength += std::abs(requests[i] - head);
+            head = requests[i];
+            result.accessOrder.push_back(head);
+        }
+        // 到达边界后反向，处理剩余（递增方向）的请求
+        for (int i = splitIndex; i < n; ++i) {
+            result.totalSeekLength += std::abs(requests[i] - head);
+            head = requests[i];
+            result.accessOrder.push_back(head);
         }
     }
+
+    // 计算平均寻道长度（注意：总步数是 n，因为要处理 n 个请求）
+    result.avgSeekLength = static_cast<double>(result.totalSeekLength) / n;
+    return result;
 }
 
-signed main()
-{
-    cin.tie(nullptr)->std::ios::sync_with_stdio(false);
-    cout.tie(nullptr);
-#if ONLINE_JUDGE
-    char readBuffer[1 << 20];
-    cin.rdbuf()->pubsetbuf(readBuffer, sizeof(readBuffer));
-#endif
-    int T = 1;
-    // cin>>T;
-    while (T--)
-    {
-        solve();
+// 测试示例
+int main() {
+    std::vector<int> requests = {98, 183, 37, 122, 14, 124, 65, 67};
+    int startHead = 53;
+
+    // 假设初始方向为向外（递增）
+    DiskResult res = runSCAN(requests, startHead, 1);
+
+    std::cout << "SCAN 访问顺序: ";
+    for (int track : res.accessOrder) {
+        std::cout << track << " ";
     }
+    std::cout << "\n总寻道长度: " << res.totalSeekLength << std::endl;
+    std::cout << "平均寻道长度: " << res.avgSeekLength << std::endl;
 
     return 0;
 }
