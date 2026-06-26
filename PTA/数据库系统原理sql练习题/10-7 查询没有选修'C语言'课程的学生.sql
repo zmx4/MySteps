@@ -23,11 +23,13 @@ CREATE TABLE `sc` (
   CONSTRAINT `fk_sc_cno` FOREIGN KEY (`cno`) REFERENCES `cou` (`CNO`),
   CONSTRAINT `fk_sc_sno` FOREIGN KEY (`sno`) REFERENCES `stu` (`sno`)
 );
-select stu.sno, stu.sname
-from stu
-where not exists 
-(
-    select *
-    from sc, cou
-    where sc.cno = cou.cno and cou.cname = 'C语言' and sc.sno = stu.sno
+SELECT s.sno AS 学号, s.sname AS 姓名
+FROM stu s
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM sc
+    JOIN cou ON sc.cno = cou.cno
+    WHERE sc.sno = s.sno
+      AND cou.cname = 'C语言'
 )
+ORDER BY s.sno ASC;
