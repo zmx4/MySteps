@@ -1,4 +1,3 @@
-#pragma region
 #include <iostream>
 #include <string>
 #include <vector>
@@ -37,7 +36,6 @@ template <typename T, typename... Args>
 void _dbg(T &&arg, Args &&...args){cerr << arg;if (sizeof...(args) > 0)cerr << ", ";_dbg(args...);}
 template <typename T, typename N, typename... Args>
 void _dbg(T *arr, N n, Args &&...rest){cerr << "[";for (N i = 0; i < n; ++i){if (i != 0)cerr << ", ";cerr << arr[i];}cerr << "]";if (sizeof...(rest) > 0)cerr << ", ";_dbg(rest...);}
-#pragma endregion
 #pragma region solve
 #define int long long
 namespace solve
@@ -47,14 +45,30 @@ inline void Tick()
 {
     int n;
     cin >> n;
-    vector<int> a(n);
-    for (int i = 0; i < n; ++i)cin >> a[i];
-    sort(a.begin(), a.end());
-    int ans = INT64_MIN;
-    ans = max(ans, a[n - 1] * a[n - 2] * a[n - 3] * a[n - 4] * a[n - 5]);
-    ans = max(ans, a[0] * a[1] * a[n - 1] * a[n - 2] * a[n - 3]);
-    ans = max(ans, a[0] * a[1] * a[2] * a[3] * a[n - 1]);
-    cout << ans << endl;
+    vector<int> a(n+2), b(n+2),pre(n+2),ans(n+2),cnt(n+2);
+    for (int i = 1; i <= n;++i)
+        cin >> a[i];
+    for(int i = 1; i <= n;++i)
+    {
+        cin >> b[i];
+        pre[i] = pre[i-1] + b[i];
+    }
+    for (int i = 1; i <= n;++i)
+    {
+        int pos = lower_bound(pre.begin(), pre.begin() + n + 1, a[i] + pre[i - 1]) - pre.begin();
+        cnt[pos]--;
+        cnt[i]++;
+        ans[pos]+=a[i] - (pre[pos-1] - pre[i-1]);
+    }
+    for (int i = 1; i <= n;++i)
+    {
+        cnt[i] += cnt[i - 1];
+    }
+    for (int i = 1; i <= n;++i)
+    {
+        cout << ans[i] + cnt[i] * b[i] << " ";
+    }
+    cout << endl;
 }
 }
 #pragma endregion

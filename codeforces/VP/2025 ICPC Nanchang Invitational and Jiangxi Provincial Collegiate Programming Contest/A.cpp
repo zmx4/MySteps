@@ -14,7 +14,7 @@ void solve()
     cout << (a + b + c) * d;
 }
 
-signed main()a
+signed main()
 {
     ios::sync_with_stdio(false);
     cin.tie(nullptr),cout.tie(nullptr);
