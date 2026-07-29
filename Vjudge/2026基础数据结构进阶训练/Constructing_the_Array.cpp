@@ -41,35 +41,37 @@ void _dbg(T *arr, N n, Args &&...rest){cerr << "[";for (N i = 0; i < n; ++i){if 
 namespace solve
 {
 constexpr int N = 1e5 + 10, M = 1e5 + 10;
+struct Node
+{
+    int len, l;
+    bool operator<(const Node &rhs) const
+    {
+        if(len == rhs.len)
+            return l > rhs.l;
+        return len < rhs.len;
+    }
+};
 inline void Tick()
 {
     int n;
     cin >> n;
-    vector<int> a(n+2), b(n+2),pre(n+2),ans(n+2),cnt(n+2);
-    for (int i = 1; i <= n;++i)
-        cin >> a[i];
-    for(int i = 1; i <= n;++i)
+    vector<int> a(n + 1);
+    priority_queue<Node> pq;
+    pq.push({n, 1});
+    int cnt = 1;
+    while(!pq.empty())
     {
-        cin >> b[i];
-        pre[i] = pre[i-1] + b[i];
+        Node now = pq.top();
+        pq.pop();
+        if(now.len<=0)
+            continue;
+        int mid = (now.l + now.l + now.len - 1) / 2;
+        a[mid] = cnt++;
+        pq.push({mid - now.l, now.l});
+        pq.push({now.l + now.len - 1 - mid, mid + 1});
     }
-    for (int i = 1; i <= n;++i)
-    {
-        // 二分查找,查找第一个大于等于a[i]+pre[i-1]的前缀和位置
-        int pos = lower_bound(pre.begin(), pre.begin() + n + 1, a[i] + pre[i - 1]) - pre.begin();
-        cnt[pos]--;
-        cnt[i]++;
-        ans[pos]+=a[i] - (pre[pos-1] - pre[i-1]);
-    }
-    for (int i = 1; i <= n;++i)
-    {
-        cnt[i] += cnt[i - 1];
-    }
-    for (int i = 1; i <= n;++i)
-    {
-        cout << ans[i] + cnt[i] * b[i] << " ";
-    }
-    cout << endl;
+    for(int i = 1; i <= n; ++i)
+        cout << a[i] << " \n"[i == n];
 }
 }
 #pragma endregion

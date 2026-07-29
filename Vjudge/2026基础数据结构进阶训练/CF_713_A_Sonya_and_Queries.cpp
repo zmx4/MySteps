@@ -41,35 +41,31 @@ void _dbg(T *arr, N n, Args &&...rest){cerr << "[";for (N i = 0; i < n; ++i){if 
 namespace solve
 {
 constexpr int N = 1e5 + 10, M = 1e5 + 10;
+unordered_map<int, int> mp;
+ll get(int x)
+{
+    int t = 1, sum = 0;
+    while(x)
+    {
+        if(x & 1) sum += t;
+        x /= 10;
+        t <<= 1;
+    }
+    return sum;
+}
 inline void Tick()
 {
     int n;
     cin >> n;
-    vector<int> a(n+2), b(n+2),pre(n+2),ans(n+2),cnt(n+2);
-    for (int i = 1; i <= n;++i)
-        cin >> a[i];
-    for(int i = 1; i <= n;++i)
+    for(int i = 1; i <= n; ++i)
     {
-        cin >> b[i];
-        pre[i] = pre[i-1] + b[i];
+        char op;
+        int x;
+        cin >> op >> x;
+        if(op == '+')mp[get(x)]++;
+        else if(op == '-')mp[get(x)]--;
+        else cout << mp[get(x)] << endl;
     }
-    for (int i = 1; i <= n;++i)
-    {
-        // 二分查找,查找第一个大于等于a[i]+pre[i-1]的前缀和位置
-        int pos = lower_bound(pre.begin(), pre.begin() + n + 1, a[i] + pre[i - 1]) - pre.begin();
-        cnt[pos]--;
-        cnt[i]++;
-        ans[pos]+=a[i] - (pre[pos-1] - pre[i-1]);
-    }
-    for (int i = 1; i <= n;++i)
-    {
-        cnt[i] += cnt[i - 1];
-    }
-    for (int i = 1; i <= n;++i)
-    {
-        cout << ans[i] + cnt[i] * b[i] << " ";
-    }
-    cout << endl;
 }
 }
 #pragma endregion
@@ -85,7 +81,7 @@ signed main()
     cin.rdbuf()->pubsetbuf(readBuffer, sizeof(readBuffer));
 #endif
     int T = 1;
-    cin >> T;
+    // cin >> T;
     while (T--)
     {
         solve::Tick();

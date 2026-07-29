@@ -45,31 +45,23 @@ inline void Tick()
 {
     int n;
     cin >> n;
-    vector<int> a(n+2), b(n+2),pre(n+2),ans(n+2),cnt(n+2);
-    for (int i = 1; i <= n;++i)
+    vector<int> a(n+1);
+    int sum = 0;
+    for(int i = 1; i <= n; ++i)
+    {
         cin >> a[i];
-    for(int i = 1; i <= n;++i)
-    {
-        cin >> b[i];
-        pre[i] = pre[i-1] + b[i];
+        sum += a[i];
     }
-    for (int i = 1; i <= n;++i)
+    int cnt = 0;
+    for(int i = n;i >= 2;--i)
     {
-        // 二分查找,查找第一个大于等于a[i]+pre[i-1]的前缀和位置
-        int pos = lower_bound(pre.begin(), pre.begin() + n + 1, a[i] + pre[i - 1]) - pre.begin();
-        cnt[pos]--;
-        cnt[i]++;
-        ans[pos]+=a[i] - (pre[pos-1] - pre[i-1]);
+        cnt += a[i];
+        if(cnt > 0)
+        {
+            sum += cnt;
+        }
     }
-    for (int i = 1; i <= n;++i)
-    {
-        cnt[i] += cnt[i - 1];
-    }
-    for (int i = 1; i <= n;++i)
-    {
-        cout << ans[i] + cnt[i] * b[i] << " ";
-    }
-    cout << endl;
+    cout << sum << endl;
 }
 }
 #pragma endregion

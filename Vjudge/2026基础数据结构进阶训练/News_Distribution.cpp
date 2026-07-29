@@ -40,36 +40,61 @@ void _dbg(T *arr, N n, Args &&...rest){cerr << "[";for (N i = 0; i < n; ++i){if 
 #define int long long
 namespace solve
 {
-constexpr int N = 1e5 + 10, M = 1e5 + 10;
+constexpr int N = 5e5 + 10, M = 1e5 + 10;
+struct DSU {
+    vector<int> p, r, sz;
+    DSU(int n) : p(n + 1), r(n + 1, 0), sz(n + 1, 1) {
+        iota(p.begin(), p.end(), 0);
+    }
+    int find(int x) {
+        return p[x] == x ? x : p[x] = find(p[x]);
+    }
+    bool unite(int a, int b) {
+        a = find(a);
+        b = find(b);
+        if (a == b)
+            return false;
+        if (r[a] < r[b])
+            swap(a, b);
+        p[b] = a;
+        if (r[a] == r[b])
+            r[a]++;
+        // sz[a] += sz[b];
+        return true;
+    }
+    void merge(int x, int y)
+    {
+    x = find(x);y = find(y);
+    if(x==y)return;
+    p[x] = y;
+    sz[y] += sz[x];
+    }
+};
 inline void Tick()
 {
-    int n;
-    cin >> n;
-    vector<int> a(n+2), b(n+2),pre(n+2),ans(n+2),cnt(n+2);
-    for (int i = 1; i <= n;++i)
-        cin >> a[i];
-    for(int i = 1; i <= n;++i)
+    int n, m;
+    cin >> n >> m;
+    DSU dsu(n);
+    for(int i = 0; i < m; i++)
     {
-        cin >> b[i];
-        pre[i] = pre[i-1] + b[i];
+        int x;
+        cin >> x;
+        if(x==0)continue;
+        x--;
+        int r;cin >> r;
+        if (x == 0)
+            continue;
+        while(x--)
+        {
+            int a;
+            cin >> a;
+            dsu.merge(a, r);
+        }
     }
     for (int i = 1; i <= n;++i)
     {
-        // 二分查找,查找第一个大于等于a[i]+pre[i-1]的前缀和位置
-        int pos = lower_bound(pre.begin(), pre.begin() + n + 1, a[i] + pre[i - 1]) - pre.begin();
-        cnt[pos]--;
-        cnt[i]++;
-        ans[pos]+=a[i] - (pre[pos-1] - pre[i-1]);
+        cout << dsu.sz[dsu.find(i)] << " ";
     }
-    for (int i = 1; i <= n;++i)
-    {
-        cnt[i] += cnt[i - 1];
-    }
-    for (int i = 1; i <= n;++i)
-    {
-        cout << ans[i] + cnt[i] * b[i] << " ";
-    }
-    cout << endl;
 }
 }
 #pragma endregion
@@ -85,7 +110,7 @@ signed main()
     cin.rdbuf()->pubsetbuf(readBuffer, sizeof(readBuffer));
 #endif
     int T = 1;
-    cin >> T;
+    // cin >> T;
     while (T--)
     {
         solve::Tick();
