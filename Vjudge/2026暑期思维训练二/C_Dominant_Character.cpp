@@ -43,9 +43,20 @@ namespace solve
 constexpr int N = 1e5 + 10, M = 1e5 + 10;
 inline void Tick()
 {
-    int n, a, b, c, d;
-    cin >> n >> a >> b >> c >> d;
-    
+    array<string,7> target = {"aa","aba","aca","abca","acba","abbacca","accabba"};
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    for (auto &t : target)
+    {
+        if (s.find(t) != string::npos)
+        {
+            cout << t.size() << endl;
+            return;
+        }
+    }
+    cout << -1 << endl;
 }
 }
 #pragma endregion
